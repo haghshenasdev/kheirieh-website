@@ -1,5 +1,4 @@
 <?php
- /*
 
 class form_controler extends CI_Controller
 {
@@ -98,4 +97,4 @@ class form_controler extends CI_Controller
 
 } 
 
-*/
+

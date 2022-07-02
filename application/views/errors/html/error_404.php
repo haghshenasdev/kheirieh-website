@@ -11,7 +11,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 	<!-- Bootstrap CSS -->
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.rtl.min.css" integrity="sha384-+qdLaIRZfNu4cVPK/PxJJEy0B0f3Ugv8i482AKY7gwXwhaCroABd086ybrVKTa0q" crossorigin="anonymous">
 
-	<link rel="stylesheet" href="<?php echo base_url('css/style.css'); ?>">
+	<link rel="stylesheet" href="css/style.css">
 
 </head>
 
@@ -20,15 +20,15 @@ defined('BASEPATH') or exit('No direct script access allowed');
 		<div id="container">
 			<div class="row mt-5 p-5">
 				<div class="col-lg-5 g-4 p-5 ThemeStyle text-center text-light m-auto">
-					<a href="<?= base_url(); ?>" class="navbar-brand">
-						<img src="<?= base_url('css/images/logo-blue.svg'); ?>" alt="لوگو خیریه" class="w-50 mb-5" aria-label="خیریه امام علی ابن ابیطالب گرگاب" width="90px">
+					<a href="./" class="navbar-brand">
+						<img src="css/images/logo-blue.svg" alt="لوگو خیریه" class="w-50 mb-5" aria-label="خیریه امام علی ابن ابیطالب گرگاب" width="90px">
 					</a>
 					<h1>خطای 404</h1>
 					<p>صفحه مورد نظر یافت نشد !</p>
 					<?php if (array_key_exists('HTTP_REFERER',$_SERVER)) : ?>
 						<a href="<?= $_SERVER['HTTP_REFERER']; ?>" class="btn btn-outline-light">بازگشت به صفحه قبل</a>
 					<?php endif; ?>
-					<a href="<?= base_url(); ?>" class="btn btn-outline-light">بازگشت به صفحه اصلی</a>
+					<a href="./" class="btn btn-outline-light">بازگشت به صفحه اصلی</a>
 				</div>
 			</div>
 		</div>

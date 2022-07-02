@@ -91,7 +91,7 @@
 
       <div class="ThemeStyle text-light text-center p-5 mt-3">
         <img src="<?php echo base_url('css/images/1لوگوی صندوق انصار.svg'); ?>" class="d-block mx-lg-auto img-fluid float-lg-end m-auto" alt="صندوق انصار المهدی شهر گرگاب" loading="lazy" width="70px">
-        <p class="m-auto fs-2" style=" margin-top: 100px;">شماره حساب : 117250
+        <p class="m-auto fs-2" style=" margin-top: 100px;">شماره حساب : 11879431
         </p>
         <p class="m-auto" style=" margin-top: 100px;">صندوق قرض الحسنه انصار المهدی گرگاب</p>
         <p class="m-auto" style="font-size: 15px;">خیریه امام علی ابن ابیطالب (ع) گرگاب</p>
@@ -105,16 +105,19 @@
 <div id="download-app" class="ThemeStyle-gradient">
   <div class="container col-xxl-8 px-4 py-5">
     <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
-      <div class="col-10 col-sm-8 col-lg-6">
-        <div class="d-block mx-lg-auto img-fluid d-none d-lg-block " width="7" height="50"></div>
-      </div>
+      
       <div class="col-lg-6 text-light text-center">
         <img src="<?php echo base_url('css/images/android-logo.svg'); ?>" class="m-auto mx-lg-auto img-fluid" alt="Bootstrap Themes" loading="lazy" width="100">
         <h3 style="margin-top: 20px;" class="  lh-1 mb-3">دانلود نرم افزار خیریه</h3>
         <div class="d-grid gap-2">
           <a href="<?= $setting[8]->data ?>" class="btn btn-outline-light"><img src="<?php echo base_url('css/images/download.svg'); ?>" alt="آیکون دانلود" width="20px"> دانلود مستقیم </a>
-          <a href="<?= $setting[9]->data ?>" class="btn btn-outline-light"><img src="<?php echo base_url('css/images/download.svg'); ?>" alt="آیکون دانلود" width="20px"> دانلود از کافه بازار </a>
-
+          <!-- <a href="<?php //echo $setting[9]->data ?>" class="btn btn-outline-light"><img src="<?php //echo base_url('css/images/download.svg'); ?>" alt="آیکون دانلود" width="20px"> دانلود از کافه بازار </a> -->
+        </div>
+      </div>
+      
+      <div class="col-lg-6 text-center m-auto my-5">
+        <div class="d-block mx-lg-auto img-fluid text-light" width="100%" height="50">
+          <p>نرم افزار خیریه امکان کمک به نیاز مندان ، پرداخت صدقه و مشارکت در امور خیر و عام المنفعه را در هر زمان و همه جا فراهم می کند .</p>
         </div>
       </div>
     </div>
