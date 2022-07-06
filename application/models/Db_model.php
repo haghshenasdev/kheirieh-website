@@ -20,6 +20,12 @@ class db_model extends CI_Model{
         $query = $this->db->get_where('type',array('type_name' => $type_name));
         return $query->result();
     }
+    public function get_pay_typename($typeid)
+    {
+        $this->load->database();
+        $query = $this->db->get_where('type',['id' => $typeid]);
+        return $query->result()[0]->title;
+    }
     public function get_pay_type_id($id)
     {
         $this->load->database();
@@ -88,6 +94,17 @@ class db_model extends CI_Model{
         );
         $this->db->insert('faktoors',$data);
         return $sabtid;
+    }
+    public function getpay($sabtid)
+    {
+        $this->load->database();
+        $query = $this->db->get_where('faktoors',['sabtid' => $sabtid]);
+        return $query->result();
+    }
+    public function settruepardakht($sabtid)
+    {
+        $this->load->database();
+        $this->db->update('faktoors',['ispardakht' => '1'],['sabtid' => $sabtid]);
     }
     public function get_sabtid()
     {

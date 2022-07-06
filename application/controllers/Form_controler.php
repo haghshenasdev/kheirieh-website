@@ -2,19 +2,19 @@
 
 class form_controler extends CI_Controller
 {
-    public function pay($type_name , $ezafe = null)
+    public function pay($type_name, $ezafe = null)
     {
         $this->load->model('DB_model');
         $type_data = $this->DB_model->get_pay_type($type_name);
         $this->load->helper(array('form', 'url'));
-        $this->load->library(array('form_validation', 'show_menu', 'db_type', 'faktoor_image', 'jdf'));
+        $this->load->library(array('form_validation', 'show_menu', 'db_type', 'jdf', 'cipaykish'));
 
         $all_type = null;
         if ($type_name == 'komak') {
             $obj = new db_type();
             $type_data = array($obj);
             $all_type = $this->DB_model->get_types();
-        } elseif(count($type_data) == 0 || !is_null($ezafe)){
+        } elseif (count($type_data) == 0 || !is_null($ezafe)) {
             show_404();
         }
 
@@ -37,6 +37,9 @@ class form_controler extends CI_Controller
             'type_data' => $type_data,
             'all_type' => $all_type
         );
+
+
+
         if ($this->form_validation->run() == FALSE) {
             $this->load->view('formp', $data);
         } else {
@@ -58,15 +61,43 @@ class form_controler extends CI_Controller
             date_default_timezone_set('Asia/Tehran');
             $sabtid = $this->DB_model->insert_pay($name, $phone, $email, $amount, $typeid, ($date . '-' . date('H:i:s')));
 
+            $pay = new cipaykish(base_url('index.php/form_controler/verifaypay'),$this->config->item('MID_Pay'));
+            $pay->showpay($amount, $sabtid);
+        }
+    }
+
+    public function verifaypay()
+    {
+        $this->load->model('DB_model');
+        $this->load->helper('url');
+        $this->load->library(['cipaykish','faktoor_image','show_menu']);
+        $menu = $this->DB_model->get_menus();
+        $pay = new cipaykish();
+        $res = $pay->verifypay();
+        if (! $res) {
+            $this->load->view('formFailed' , ['menus' => $menu]);
+        } else {
+
+            ///for test
+            //$res = ['RefNum' => '110-000000002'];
+            ///
+
+            $sabtid = $res['RefNum'];
+            
+            $this->DB_model->settruepardakht($sabtid);
+            $res = $this->DB_model->getpay($sabtid);
+            $type_title = $this->DB_model->get_pay_typename($res[0]->type);
+
+            //sucess , create faktoor
             $faktoor = $this->faktoor_image->create_factoor_image(
-                $name,
-                $amount,
-                $title,
-                $date,
+                $res[0]->name,
+                $res[0]->amount,
+                $type_title,
+                $res[0]->date,
                 $sabtid
             );
 
-            $this->load->view('formsuccess', array('faktoor' => $faktoor));
+            $this->load->view('formsuccess', array('faktoor' => $faktoor,'menus' => $menu));
         }
     }
 
@@ -95,6 +126,4 @@ class form_controler extends CI_Controller
     //vlidate method end
 
 
-} 
-
-
+}

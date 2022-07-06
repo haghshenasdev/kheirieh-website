@@ -27,8 +27,8 @@ class faktoor_image
         //write
         $this->write_persian_text_center($image, $name, $font, $white, 600);
         $this->write_persian_text_center($image, " رسید پرداخت جهت $type_name", $font, $white, 60);
-        $this->write_persian_text_center($image, number_format($amount), $font, $white, 760);
-        $this->write_persian_text_center($image, $sabtid, $font, $white, 910);
+        $this->write_persian_text_center($image, number_format($amount), $font, $white, 760,false);
+        $this->write_persian_text_center($image, $sabtid, $font, $white, 910,false);
         $this->write_persian_text($image, $date, $font, $black, 83, 170, false);
 
         //path
@@ -72,7 +72,9 @@ class faktoor_image
 
     public function show_factoor_img_tag($filename, $class = '', $width = '100%')
     {
-        echo "<img src='" . base_url($filename) . "' class='$class' width='$width' >";
+        $link = base_url($filename);
+        echo "<a href=".$link."><img src='" . $link . "' class='$class' width='$width' ></a>";
+        return $link;
     }
 
     function convert_datetype($data)

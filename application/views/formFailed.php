@@ -30,50 +30,43 @@
     <link rel="stylesheet" href="<?php echo base_url('css/style.css'); ?>">
     <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/animate.css/3.2.6/animate.min.css" />
     <link rel="icon" type="image/x-icon" href="<?php echo base_url('css/images/logo.svg'); ?>">
-    <title>پرداخت موفق | دریافت رسید</title>
+    <title>خطا در پرداخت</title>
 </head>
 
 <body>
 
-<main class="font-sans">
+    <main class="font-sans">
 
-    <nav class="navbar navbar-expand-lg navbar-light text-center">
-        <div class="container">
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <a href="<?php echo base_url(); ?>" class="navbar-brand">
-                <img src="<?php echo base_url('css/images/logo.svg'); ?>" class="bi me-2" aria-label="خیریه امام علی ابن ابیطالب گرگاب" width="90px" />
-            </a>
-            <div class="collapse navbar-collapse text-light" id="navbarTogglerDemo01">
+        <nav class="navbar navbar-expand-lg navbar-light text-center">
+            <div class="container">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <a href="<?php echo base_url(); ?>" class="navbar-brand">
+                    <img src="<?php echo base_url('css/images/logo.svg'); ?>" class="bi me-2" aria-label="خیریه امام علی ابن ابیطالب گرگاب" width="90px" />
+                </a>
+                <div class="collapse navbar-collapse text-light" id="navbarTogglerDemo01">
 
-                <ul class="navbar-nav My-nav me-auto mb-2 mb-lg-0 justify-content-center">
-                    <?php foreach ($menus as $row) : ?>
-                        <li class="nav-item"><a href="<?php echo $this->show_menu->is_inerlink_show_menus($row->url); ?>" class="nav-link"><?php echo $row->title ?></a></li>
-                    <?php endforeach; ?>
-                </ul>
+                    <ul class="navbar-nav My-nav me-auto mb-2 mb-lg-0 justify-content-center">
+                        <?php foreach ($menus as $row) : ?>
+                            <li class="nav-item"><a href="<?php echo $this->show_menu->is_inerlink_show_menus($row->url); ?>" class="nav-link"><?php echo $row->title ?></a></li>
+                        <?php endforeach; ?>
+                    </ul>
 
+                </div>
             </div>
-        </div>
-    </nav>
-
-    <section class="py-2 container">
-        <div class="row align-items-center">
-            <div class="col-lg-6 col-md-8 lg-start d-block d-lg-none mx-auto text-center p-4">
-                <h1>پرداخت با موفقیت انجام شد </h1>
-                <p>با تشکر از کمک شما ، رسید کمک را می توانید از کلیک بروی تصویر دریافت نمایید</p>
+        </nav>
+        <section class="py-2 container">
+            <div class="row align-items-center text-center mt-5 mb-5">
+                
+                <h1 style="color: red;">پرداخت با شکست مواجه شد!</h1>
+                <p class="mt-5" style="color: #9b120b;">با عرض پوزش پرداخت انجام نشد . <br> کمک خود را نیز می توانید از طریق شماره کارت های خیریه واریز نمایید ، این شماره کارت ها در صفحه اصلی قابل روئیت است. </p>
+                <!-- <div class="col-lg-6 col-md-8 lg-start d-block d-lg-none mx-auto text-center p-4">
+                
+                
+            </div> -->
             </div>
+        </section>
+    </main>
 
-            <div class="col-lg-6 col-md-8 mx-auto ThemeStyle p-5 text-light">
-                <?php $link = $this->faktoor_image->show_factoor_img_tag($faktoor); ?>
-            </div>
-
-            <div class="col-lg-6 col-md-8 lg-start d-none d-lg-block mx-auto text-center p-4">
-                <h1>پرداخت با موفقیت انجام شد </h1>
-                <p>با تشکر از کمک شما ، رسید کمک را می توانید از <a href="<?= $link ?>">این جا</a> دریافت نمایید</p>
-            </div>
-        </div>
-    </section>
-</main>
-
-<?php include("page-footer.php"); ?>
+    <?php include("page-footer.php"); ?>

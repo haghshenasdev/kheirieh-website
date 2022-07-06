@@ -530,12 +530,14 @@ $config['rewrite_short_tags'] = FALSE;
 | Array:		array('10.0.1.200', '192.168.5.0/24')
 */
 $config['proxy_ips'] = '';
+$config['MID_Pay'] = '11026481';
 
-$config['google_key'] = '6Lek8jIgAAAAAN9OHnVJ9xT7_9lxxcybU5D8yfpi';
+// $config['google_key'] = '6Lek8jIgAAAAAN9OHnVJ9xT7_9lxxcybU5D8yfpi';
 
-$config['google_secret'] = '6Lek8jIgAAAAAKg2MHYgt3nwahfM-kxc-V4l8AKu';
+// $config['google_secret'] = '6Lek8jIgAAAAAKg2MHYgt3nwahfM-kxc-V4l8AKu';
 
-// for local host
-// $config['google_key'] = '6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI';
+//for local host
+$config['google_key'] = '6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI';
 
-// $config['google_secret'] = '6LeIxAcTAAAAAGG-vFI1TnRWxMZNFuojJ4WifJWe';
+$config['google_secret'] = '6LeIxAcTAAAAAGG-vFI1TnRWxMZNFuojJ4WifJWe';
+
