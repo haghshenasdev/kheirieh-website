@@ -12,7 +12,7 @@ class cipaykish
     public function __construct($RedirectURL = "http://localhost/cipaykish/tstpay.php",$MerchantCode = "11026481")
     {
         $this->MerchantCode = $MerchantCode;
-        $this->RedirectURL = $RedirectURL . '?v';
+        $this->RedirectURL = $RedirectURL;
     }
 
     public function verifypay()
