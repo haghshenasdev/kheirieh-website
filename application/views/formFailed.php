@@ -58,7 +58,6 @@
         </nav>
         <section class="py-2 container">
             <div class="row align-items-center text-center mt-5 mb-5">
-                
                 <h1 style="color: red;">پرداخت با شکست مواجه شد!</h1>
                 <p class="mt-5" style="color: #9b120b;">با عرض پوزش پرداخت انجام نشد . <br> کمک خود را نیز می توانید از طریق شماره کارت های خیریه واریز نمایید ، این شماره کارت ها در صفحه اصلی قابل روئیت است. </p>
                 <!-- <div class="col-lg-6 col-md-8 lg-start d-block d-lg-none mx-auto text-center p-4">

@@ -13,9 +13,10 @@ class faktoor_image
 
     public function create_factoor_image($name, $amount, $type_name, $date, $sabtid = "")
     {
+
         //remove catch
-        $this->del_exp_faktoors($this->get_faktors(),$this->expr_time);
-        
+        $this->del_exp_faktoors($this->get_faktors(), $this->expr_time);
+
         //create image
         $image = imagecreatefrompng($this->template);
         $font = $this->font;
@@ -27,8 +28,8 @@ class faktoor_image
         //write
         $this->write_persian_text_center($image, $name, $font, $white, 600);
         $this->write_persian_text_center($image, " رسید پرداخت جهت $type_name", $font, $white, 60);
-        $this->write_persian_text_center($image, number_format($amount), $font, $white, 760,false);
-        $this->write_persian_text_center($image, $sabtid, $font, $white, 910,false);
+        $this->write_persian_text_center($image, number_format($amount), $font, $white, 760, false);
+        $this->write_persian_text_center($image, $sabtid, $font, $white, 910, false);
         $this->write_persian_text($image, $date, $font, $black, 83, 170, false);
 
         //path
@@ -46,7 +47,10 @@ class faktoor_image
 
     public function create_path_img($type, $sabtid)
     {
+
+        // this is a bug
         $date = date("Y-m-d_H-i-s");
+
         $filename = $this->path_save . "/$sabtid-$date-$type.png";
         return $filename;
     }
@@ -73,7 +77,7 @@ class faktoor_image
     public function show_factoor_img_tag($filename, $class = '', $width = '100%')
     {
         $link = base_url($filename);
-        echo "<a href=".$link."><img src='" . $link . "' class='$class' width='$width' ></a>";
+        echo "<a href=" . $link . "><img src='" . $link . "' class='$class' width='$width' ></a>";
         return $link;
     }
 
@@ -81,7 +85,6 @@ class faktoor_image
     {
         $sudstr = substr($data, 23, 19);
         $arrstr = explode('_', $sudstr);
-
         return str_replace('-', '/', $arrstr[0]) . ' ' . str_replace('-', ':', $arrstr[1]);
     }
     //in libs
@@ -91,15 +94,17 @@ class faktoor_image
         $images = array_diff(glob($directory . "/*.png"), array('..', '.'));
         return $images;
     }
+
     function del_exp_faktoors($iamges, $exprtime)
     {
-        $time1 = date("Y/m/d H:i:s"); // now time
-
-        foreach ($iamges as $iamge) {
-            $time2 = $this->convert_datetype($iamge);
-            $diff = strtotime($time1) - strtotime($time2);
-            if ($diff > $exprtime) {
-                unlink($iamge);
+        if (count($iamges) > 5) {
+            $time1 = date("Y/m/d H:i:s"); // now time
+            foreach ($iamges as $iamge) {
+                $time2 = $this->convert_datetype($iamge);
+                $diff = strtotime($time1) - strtotime($time2);
+                if ($diff > $exprtime) {
+                    unlink($iamge);
+                }
             }
         }
     }

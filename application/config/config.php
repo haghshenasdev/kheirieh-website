@@ -530,7 +530,7 @@ $config['rewrite_short_tags'] = FALSE;
 | Array:		array('10.0.1.200', '192.168.5.0/24')
 */
 $config['proxy_ips'] = '';
-$config['MID_Pay'] = '11026481';
+$config['MID_Pay'] = 'af24dcf3-8df1-4522-bf5f-b7abbe9294a9';
 
 // $config['google_key'] = '6Lek8jIgAAAAAN9OHnVJ9xT7_9lxxcybU5D8yfpi';
 

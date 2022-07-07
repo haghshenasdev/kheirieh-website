@@ -7,7 +7,7 @@ class form_controler extends CI_Controller
         $this->load->model('DB_model');
         $type_data = $this->DB_model->get_pay_type($type_name);
         $this->load->helper(array('form', 'url'));
-        $this->load->library(array('form_validation', 'show_menu', 'db_type', 'jdf', 'cipaykish'));
+        $this->load->library(array('form_validation', 'show_menu', 'db_type', 'jdf'));
 
         $all_type = null;
         if ($type_name == 'komak') {
@@ -59,10 +59,19 @@ class form_controler extends CI_Controller
             $date = $ar[0] . '/' . $ar[1] . '/' . $ar[2];
 
             date_default_timezone_set('Asia/Tehran');
-            $sabtid = $this->DB_model->insert_pay($name, $phone, $email, $amount, $typeid, ($date . '-' . date('H:i:s')));
 
-            $pay = new cipaykish(base_url('index.php/form_controler/verifaypay'),$this->config->item('MID_Pay'));
-            $pay->showpay($amount, $sabtid);
+            $this->load->library('zarinpal', ['merchant_id' => $this->config->item('MID_Pay')]);
+            ///$this->zarinpal->sandbox();
+            if ($this->zarinpal->request($amount, $title, base_url('index.php/form_controler/verifaypay'))) {
+                $authority = $this->zarinpal->get_authority();
+                $sabtid = $this->DB_model->insert_pay($name, $phone, $email, $amount, $typeid, ($date . '-' . date('H:i:s')), $this->DB_model->get_format_authority($authority));
+
+                // do database stuff
+                $this->zarinpal->redirect();
+            } else {
+                // Unable to connect to gateway
+                echo 'ارتباط با درگاه پرداخت انجام نشد !';
+            }
         }
     }
 
@@ -70,22 +79,24 @@ class form_controler extends CI_Controller
     {
         $this->load->model('DB_model');
         $this->load->helper('url');
-        $this->load->library(['cipaykish','faktoor_image','show_menu']);
+        $this->load->library(['faktoor_image', 'show_menu']);
+        $this->load->library('zarinpal', ['merchant_id' => $this->config->item('MID_Pay')]);
         $menu = $this->DB_model->get_menus();
-        $pay = new cipaykish();
-        $res = $pay->verifypay();
-        if (! $res) {
-            $this->load->view('formFailed' , ['menus' => $menu]);
-        } else {
 
-            ///for test
-            //$res = ['RefNum' => '110-000000002'];
-            ///
+        $status = $this->input->get('Status', TRUE);
+        $authority = $this->input->get('Authority', TRUE);
 
-            $sabtid = $res['RefNum'];
-            
-            $this->DB_model->settruepardakht($sabtid);
-            $res = $this->DB_model->getpay($sabtid);
+        // if ($status !== 'OK' or $authority === NULL) {
+        //     // payment canceled by user
+        // }
+
+        //$this->zarinpal->verify($res[0]->amount, $authority)
+        if ($status === 'OK' && $authority !== NULL) {
+            $ref_id = $this->zarinpal->get_ref_id();
+            // payment succeeded, do database stuff  
+            $authority = $this->DB_model->get_format_authority($authority);
+            $res = $this->DB_model->getpay($authority);
+            $this->DB_model->settruepardakht($authority);
             $type_title = $this->DB_model->get_pay_typename($res[0]->type);
 
             //sucess , create faktoor
@@ -94,10 +105,14 @@ class form_controler extends CI_Controller
                 $res[0]->amount,
                 $type_title,
                 $res[0]->date,
-                $sabtid
+                $authority
             );
 
-            $this->load->view('formsuccess', array('faktoor' => $faktoor,'menus' => $menu));
+            $this->load->view('formsuccess', array('faktoor' => $faktoor, 'menus' => $menu));
+        } else {
+            $error = $this->zarinpal->get_error();
+            // payment failed
+            $this->load->view('formFailed', ['menus' => $menu, 'error' => $error]);
         }
     }
 

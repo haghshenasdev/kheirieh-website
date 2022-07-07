@@ -316,7 +316,8 @@
 
       <li class="ms-3">
         <a class="text-muted" href="#">
-          <img class="bi" src="<?php echo base_url('css/images/اینماد.png'); ?>" alt="لوگوی اینماد" width="90">
+          <!-- <img class="bi" src="<?php //echo base_url('css/images/اینماد.png'); ?>" alt="لوگوی اینماد" width="90"> -->
+          <script src="https://www.zarinpal.com/webservice/TrustCode" type="text/javascript"></script>
         </a>
       </li>
       <li class="ms-3">
