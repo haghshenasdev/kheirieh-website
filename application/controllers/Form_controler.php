@@ -4,8 +4,8 @@ class form_controler extends CI_Controller
 {
     public function pay($type_name, $ezafe = null)
     {
-        $this->load->model('DB_model');
-        $type_data = $this->DB_model->get_pay_type($type_name);
+        $this->load->model('db_model');
+        $type_data = $this->db_model->get_pay_type($type_name);
         $this->load->helper(array('form', 'url'));
         $this->load->library(array('form_validation', 'show_menu', 'db_type', 'jdf'));
 
@@ -13,7 +13,7 @@ class form_controler extends CI_Controller
         if ($type_name == 'komak') {
             $obj = new db_type();
             $type_data = array($obj);
-            $all_type = $this->DB_model->get_types();
+            $all_type = $this->db_model->get_types();
         } elseif (count($type_data) == 0 || !is_null($ezafe)) {
             show_404();
         }
@@ -32,8 +32,8 @@ class form_controler extends CI_Controller
         $this->form_validation->set_message('google_validate_captcha', 'لطفا کپچا را برسی کنید');
 
         $data = array(
-            'menus' => $this->DB_model->get_menus(),
-            'hadis_random_sadagheh' => $this->DB_model->get_hadis('صدقه'),
+            'menus' => $this->db_model->get_menus(),
+            'hadis_random_sadagheh' => $this->db_model->get_hadis('صدقه'),
             'type_data' => $type_data,
             'all_type' => $all_type
         );
@@ -50,7 +50,7 @@ class form_controler extends CI_Controller
             $email = $this->input->post('email');
 
             if ($type_data[0]->id == 0) {
-                $type_data = $this->DB_model->get_pay_type_id($this->input->post('type'));
+                $type_data = $this->db_model->get_pay_type_id($this->input->post('type'));
             }
             $title = $type_data[0]->title;
             $typeid = $type_data[0]->id;
@@ -64,7 +64,7 @@ class form_controler extends CI_Controller
             //$this->zarinpal->sandbox();
             if ($this->zarinpal->request($amount, $title, base_url('index.php/form_controler/verifaypay'))) {
                 $authority = $this->zarinpal->get_authority();
-                $this->DB_model->insert_pay($name, $phone, $email, $amount, $typeid, ($date . '-' . date('H:i:s')), $this->DB_model->get_format_authority($authority));
+                $this->db_model->insert_pay($name, $phone, $email, $amount, $typeid, ($date . '-' . date('H:i:s')), $this->db_model->get_format_authority($authority));
 
                 // do database stuff
                 $this->zarinpal->redirect();
@@ -77,11 +77,11 @@ class form_controler extends CI_Controller
 
     public function verifaypay()
     {
-        $this->load->model('DB_model');
+        $this->load->model('db_model');
         $this->load->helper('url');
         $this->load->library(['faktoor_image', 'show_menu']);
         $this->load->library('zarinpal', ['merchant_id' => $this->config->item('MID_Pay')]);
-        $menu = $this->DB_model->get_menus();
+        $menu = $this->db_model->get_menus();
 
         $status = $this->input->get('Status', TRUE);
         $authority = $this->input->get('Authority', TRUE);
@@ -94,10 +94,10 @@ class form_controler extends CI_Controller
         if ($status === 'OK' && $authority !== NULL) {
             $ref_id = $this->zarinpal->get_ref_id();
             // payment succeeded, do database stuff  
-            $authority = $this->DB_model->get_format_authority($authority);
-            $res = $this->DB_model->getpay($authority);
-            $this->DB_model->settruepardakht($authority);
-            $type_title = $this->DB_model->get_pay_typename($res[0]->type);
+            $authority = $this->db_model->get_format_authority($authority);
+            $res = $this->db_model->getpay($authority);
+            $this->db_model->settruepardakht($authority);
+            $type_title = $this->db_model->get_pay_typename($res[0]->type);
 
             //sucess , create faktoor
             $faktoor = $this->faktoor_image->create_factoor_image(
@@ -120,8 +120,8 @@ class form_controler extends CI_Controller
     //vlidate method
     public function valid_type($val)
     {
-        $this->load->model('DB_model');
-        $type_data = $this->DB_model->get_pay_type_id($val);
+        $this->load->model('db_model');
+        $type_data = $this->db_model->get_pay_type_id($val);
         if (count($type_data) == 0) {
             return false;
         } else {

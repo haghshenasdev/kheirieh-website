@@ -314,7 +314,7 @@
 
     <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
 
-      <li class="ms-3">
+      <li class="ms-3 mt-4">
         <a class="text-muted" href="#">
           <!-- <img class="bi" src="<?php //echo base_url('css/images/اینماد.png'); ?>" alt="لوگوی اینماد" width="90"> -->
           <script src="https://www.zarinpal.com/webservice/TrustCode" type="text/javascript"></script>

@@ -4,7 +4,7 @@
         $j = date('j');
         $m = date('n');
         $arry = $this->jdf->gregorian_to_jalali(date('Y'), date('n'), date('j'));
-        $ogt = $this->owghat->owghat($arry[1], $arry[2], 51.59604, 32.867154, 0, 1, 1);
+        $ogt = $this->owghat->owghatn($arry[1], $arry[2], 51.59604, 32.867154, 0, 1, 1);
 
         ?>
         <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0 ThemeStyle text-light p-2 px-3">
