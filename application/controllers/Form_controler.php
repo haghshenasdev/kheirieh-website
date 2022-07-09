@@ -61,10 +61,10 @@ class form_controler extends CI_Controller
             date_default_timezone_set('Asia/Tehran');
 
             $this->load->library('zarinpal', ['merchant_id' => $this->config->item('MID_Pay')]);
-            ///$this->zarinpal->sandbox();
+            //$this->zarinpal->sandbox();
             if ($this->zarinpal->request($amount, $title, base_url('index.php/form_controler/verifaypay'))) {
                 $authority = $this->zarinpal->get_authority();
-                $sabtid = $this->DB_model->insert_pay($name, $phone, $email, $amount, $typeid, ($date . '-' . date('H:i:s')), $this->DB_model->get_format_authority($authority));
+                $this->DB_model->insert_pay($name, $phone, $email, $amount, $typeid, ($date . '-' . date('H:i:s')), $this->DB_model->get_format_authority($authority));
 
                 // do database stuff
                 $this->zarinpal->redirect();
