@@ -211,3 +211,26 @@ p {
 
     line-height: 50px;
 }
+
+#akhbar .content {
+    height: 150px;
+    overflow: hidden;
+}
+
+#akhbar .card-img-top-index {
+    object-fit: cover;
+    height: 200px;
+
+}
+
+#akhbar a {
+    color: inherit;
+    text-decoration: inherit;
+}
+
+#akhbar a:hover {
+    color: inherit;
+}
+#akhbar .card-title{
+    font-weight: bold;
+}

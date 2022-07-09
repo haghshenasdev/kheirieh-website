@@ -102,27 +102,29 @@
 </div>
 
 <?php if ($setting[7]->data == 1) : ?>
-<div id="download-app" class="ThemeStyle-gradient">
-  <div class="container col-xxl-8 px-4 py-5">
-    <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
-      
-      <div class="col-lg-6 text-light text-center">
-        <img src="<?php echo base_url('css/images/android-logo.svg'); ?>" class="m-auto mx-lg-auto img-fluid" alt="Bootstrap Themes" loading="lazy" width="100">
-        <h3 style="margin-top: 20px;" class="  lh-1 mb-3">دانلود نرم افزار خیریه</h3>
-        <div class="d-grid gap-2">
-          <a href="<?= $setting[8]->data ?>" class="btn btn-outline-light"><img src="<?php echo base_url('css/images/download.svg'); ?>" alt="آیکون دانلود" width="20px"> دانلود مستقیم </a>
-          <!-- <a href="<?php //echo $setting[9]->data ?>" class="btn btn-outline-light"><img src="<?php //echo base_url('css/images/download.svg'); ?>" alt="آیکون دانلود" width="20px"> دانلود از کافه بازار </a> -->
+  <div id="download-app" class="ThemeStyle-gradient">
+    <div class="container col-xxl-8 px-4 py-5">
+      <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
+
+        <div class="col-lg-6 text-light text-center">
+          <img src="<?php echo base_url('css/images/android-logo.svg'); ?>" class="m-auto mx-lg-auto img-fluid" alt="Bootstrap Themes" loading="lazy" width="100">
+          <h3 style="margin-top: 20px;" class="  lh-1 mb-3">دانلود نرم افزار خیریه</h3>
+          <div class="d-grid gap-2">
+            <a href="<?= $setting[8]->data ?>" class="btn btn-outline-light"><img src="<?php echo base_url('css/images/download.svg'); ?>" alt="آیکون دانلود" width="20px"> دانلود مستقیم </a>
+            <!-- <a href="<?php //echo $setting[9]->data 
+                          ?>" class="btn btn-outline-light"><img src="<?php //echo base_url('css/images/download.svg'); 
+                                                                                                      ?>" alt="آیکون دانلود" width="20px"> دانلود از کافه بازار </a> -->
+          </div>
         </div>
-      </div>
-      
-      <div class="col-lg-6 text-center m-auto my-5">
-        <div class="d-block mx-lg-auto img-fluid text-light" width="100%" height="50">
-          <p>نرم افزار خیریه امکان کمک به نیاز مندان ، پرداخت صدقه و مشارکت در امور خیر و عام المنفعه را در هر زمان و همه جا فراهم می کند .</p>
+
+        <div class="col-lg-6 text-center m-auto my-5">
+          <div class="d-block mx-lg-auto img-fluid text-light" width="100%" height="50">
+            <p>نرم افزار خیریه امکان کمک به نیاز مندان ، پرداخت صدقه و مشارکت در امور خیر و عام المنفعه را در هر زمان و همه جا فراهم می کند .</p>
+          </div>
         </div>
       </div>
     </div>
   </div>
-</div>
 <?php endif; ?>
 
 
@@ -210,15 +212,18 @@
       while (have_posts()) : the_post();
       ?>
         <div class="col">
-          <div class="card ThemeStyle h-100 ThemeStyleShadow-Hover">
-            <img src="<?php echo get_the_post_thumbnail_url(); ?>" class="card-img-top-index" alt="<?php echo the_post_thumbnail_caption(); ?>">
+          <a href="<?php the_permalink(); ?>">
+            <div class="card ThemeStyle h-100 ThemeStyleShadow-Hover">
+              <img src="<?php echo get_the_post_thumbnail_url(); ?>" class="card-img-top-index" alt="<?php echo the_post_thumbnail_caption(); ?>">
 
-            <div class="card-body">
-              <h5 class="card-title"><?php the_title(); ?></h5>
-              <p><?php the_excerpt(); ?></p>
-              <a href="<?php the_permalink(); ?>" style="margin-top: 20px;" class="btn btn-outline-light ThemeStyle-border">نمایش بیشتر </a>
+              <div class="card-body pb-5">
+                <section class="content">
+                  <h5 class="card-title"><?php the_title(); ?></h5>
+                  <p><?php the_excerpt(); ?></p>
+                </section>
+              </div>
             </div>
-          </div>
+          </a>
         </div>
       <?php endwhile; ?>
     </div>
@@ -228,73 +233,73 @@
 
 
 <?php if ($setting[11]->data == 1) : ?>
-<div id="donite" class="ThemeStyle-gradient">
-  <div class="container col-xxl-8 px-4 py-5">
-    <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
-      <div class="col-lg-6 text-light text-center">
-        <img src="<?php echo base_url('css/images/مددجو.svg'); ?>" class="m-auto mx-lg-auto img-fluid" alt="Bootstrap Themes" loading="lazy" width="100">
-        <h3 style="margin-top: 20px;" class="  lh-1 mb-3">صدقه و کمک آنلاین</h3>
-        <div class="d-grid gap-2">
-          <a href="<?php echo base_url('index.php/form_controler/pay/sadagheh') ?>"  class="btn btn-outline-light">پرداخت سریع صدقه</a>
-          <a href="<?php echo base_url('index.php/form_controler/pay/komak') ?>" class="btn btn-outline-light">کمک کردن</a>
+  <div id="donite" class="ThemeStyle-gradient">
+    <div class="container col-xxl-8 px-4 py-5">
+      <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
+        <div class="col-lg-6 text-light text-center">
+          <img src="<?php echo base_url('css/images/مددجو.svg'); ?>" class="m-auto mx-lg-auto img-fluid" alt="Bootstrap Themes" loading="lazy" width="100">
+          <h3 style="margin-top: 20px;" class="  lh-1 mb-3">صدقه و کمک آنلاین</h3>
+          <div class="d-grid gap-2">
+            <a href="<?php echo base_url('index.php/form_controler/pay/sadagheh') ?>" class="btn btn-outline-light">پرداخت سریع صدقه</a>
+            <a href="<?php echo base_url('index.php/form_controler/pay/komak') ?>" class="btn btn-outline-light">کمک کردن</a>
+          </div>
         </div>
-      </div>
 
-      <div class="col-10 col-sm-8 col-lg-6">
-        <div class="d-block mx-lg-auto img-fluid d-none d-lg-block text-center text-light" width="7" height="50">
-          <h4><?php echo $hadis_random_sadagheh['gala']; ?> :</h4>
-          <p class="mt-3"><?php echo $hadis_random_sadagheh['arabi']; ?></p>
-          <p><?php echo $hadis_random_sadagheh['farsi']; ?></p>
+        <div class="col-10 col-sm-8 col-lg-6">
+          <div class="d-block mx-lg-auto img-fluid d-none d-lg-block text-center text-light" width="7" height="50">
+            <h4><?php echo $hadis_random_sadagheh['gala']; ?> :</h4>
+            <p class="mt-3"><?php echo $hadis_random_sadagheh['arabi']; ?></p>
+            <p><?php echo $hadis_random_sadagheh['farsi']; ?></p>
+          </div>
         </div>
-      </div>
 
+      </div>
     </div>
   </div>
-</div>
 <?php endif; ?>
 
 <?php if ($setting[6]->data == 1) : ?>
-<div class="container px-4 py-4" id="Omrany">
-  <h2 class="pb-2 border-bottom font-sans">پروژه های عمرانی خیریه</h2>
+  <div class="container px-4 py-4" id="Omrany">
+    <h2 class="pb-2 border-bottom font-sans">پروژه های عمرانی خیریه</h2>
 
-  <div class="row row-cols-1 row-cols-lg-3 align-items-center g-4 py-5 text-center text-light">
+    <div class="row row-cols-1 row-cols-lg-3 align-items-center g-4 py-5 text-center text-light">
 
-    <?php
+      <?php
 
-    foreach ($page_data as $row) :
-    ?>
+      foreach ($page_data as $row) :
+      ?>
+        <div class="col">
+          <div class="card ThemeStyle h-100 ThemeStyleShadow-Hover">
+            <img src="<?php echo base_url('css/images/' . $row->page_name . '/' . $row->image_head); ?>" class="card-img-top-index" alt="<?php echo $row->title; ?>">
+            <div class="card-body">
+              <h5 class="card-title"><?php echo $row->title; ?></h5>
+
+              <div class="progress">
+                <div class="progress-bar bg-danger" style="width: <?php echo $row->pishraft . '%'; ?>;" role="progressbar" aria-valuenow="<?php echo $row->pishraft . '%'; ?>" aria-valuemin="0" aria-valuemax="100"><?php echo $row->pishraft . '%'; ?></div>
+              </div>
+              <a href="index.php/Project_C/index/<?php echo $row->page_name; ?>" style="margin-top: 20px;" class="btn btn-outline-light ThemeStyle-border">اطلاعات بیشتر</a>
+              <a href="#komak" style="margin-top: 20px;" class="btn btn-outline-light ThemeStyle-border">مشارکت در پروژه</a>
+            </div>
+          </div>
+        </div>
+      <?php endforeach; ?>
+
       <div class="col">
         <div class="card ThemeStyle h-100 ThemeStyleShadow-Hover">
-          <img src="<?php echo base_url('css/images/' . $row->page_name . '/' . $row->image_head); ?>" class="card-img-top-index" alt="<?php echo $row->title; ?>">
+          <img src="<?php echo base_url('css/images/پروژه آخرت.jpg'); ?>" class="card-img-top-index" alt="...">
           <div class="card-body">
-            <h5 class="card-title"><?php echo $row->title; ?></h5>
-
+            <h5 class="card-title">شما بانی پروژه های خیر شوید</h5>
             <div class="progress">
-              <div class="progress-bar bg-danger" style="width: <?php echo $row->pishraft . '%'; ?>;" role="progressbar" aria-valuenow="<?php echo $row->pishraft . '%'; ?>" aria-valuemin="0" aria-valuemax="100"><?php echo $row->pishraft . '%'; ?></div>
+              <div class="progress-bar bg-danger" role="progressbar" style="width: 0%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">0%</div>
             </div>
-            <a href="index.php/Project_C/index/<?php echo $row->page_name; ?>" style="margin-top: 20px;" class="btn btn-outline-light ThemeStyle-border">اطلاعات بیشتر</a>
             <a href="#komak" style="margin-top: 20px;" class="btn btn-outline-light ThemeStyle-border">مشارکت در پروژه</a>
           </div>
         </div>
       </div>
-    <?php endforeach; ?>
 
-    <div class="col">
-      <div class="card ThemeStyle h-100 ThemeStyleShadow-Hover">
-        <img src="<?php echo base_url('css/images/پروژه آخرت.jpg'); ?>" class="card-img-top-index" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">شما بانی پروژه های خیر شوید</h5>
-          <div class="progress">
-            <div class="progress-bar bg-danger" role="progressbar" style="width: 0%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">0%</div>
-          </div>
-          <a href="#komak" style="margin-top: 20px;" class="btn btn-outline-light ThemeStyle-border">مشارکت در پروژه</a>
-        </div>
-      </div>
+
     </div>
-
-
   </div>
-</div>
 <?php endif; ?>
 
 
@@ -316,7 +321,8 @@
 
       <li class="ms-3 mt-4">
         <a class="text-muted" href="#">
-          <!-- <img class="bi" src="<?php //echo base_url('css/images/اینماد.png'); ?>" alt="لوگوی اینماد" width="90"> -->
+          <!-- <img class="bi" src="<?php //echo base_url('css/images/اینماد.png'); 
+                                    ?>" alt="لوگوی اینماد" width="90"> -->
           <script src="https://www.zarinpal.com/webservice/TrustCode" type="text/javascript"></script>
         </a>
       </li>
@@ -344,7 +350,6 @@ $project_omrani = (int) $setting[2]->data;
 
 ?>
 <script type="text/javascript">
-
   var madadjoo = "<?php echo "$madadjoo" ?>";
   var khanevar = "<?php echo "$khanevar" ?>";
   var project_omrani = "<?php echo "$project_omrani" ?>";
@@ -352,7 +357,6 @@ $project_omrani = (int) $setting[2]->data;
   window.onload = vmsNumber(madadjoo, "madadjoo");
   window.onload = vmsNumber(khanevar, "khanevar");
   window.onload = vmsNumber(project_omrani, "project-omrani");
-
 </script>
 <!-- Option 2: Separate Popper and Bootstrap JS -->
 <!--
