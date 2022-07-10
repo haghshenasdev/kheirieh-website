@@ -11,7 +11,8 @@ class Project_C extends CI_Controller
         if (count($project_data) != 0) {
             $data = array(
                 'project_data' => $project_data,
-                'menus' => $this->db_model->get_menus()
+                'menus' => $this->db_model->get_menus(),
+                'setting' => $this->db_model->get_setting()
             );
             $this->load->view('project-page',$data);
         }else {

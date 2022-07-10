@@ -1,13 +1,34 @@
-<footer class="text-muted py-5">
-        <div class="container">
-            <p class="float-end mb-1">
-                <a href="#">باز گشت به بالا</a>
-            </p>
-            <p class="mb-1"><span class="text-muted">تمامی حقوق برای خیریه محفوظ است.
-                    <br>
-                    آدرس : گرگاب ، بلوار امام ، خیابان آزادگان پلاک 26</span></p>
-        </div>
-    </footer>
+<div class="container">
+  <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+    <div class="col-md-4 d-flex align-items-center">
+      <a href="/" class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1">
+        <svg class="bi" width="30" height="24">
+          <use xlink:href="#bootstrap"></use>
+        </svg>
+      </a>
+      <span class="text-muted">تمامی حقوق برای خیریه محفوظ است.
+        <br>
+        آدرس : <?php echo $setting[4]->data ?></span>
+    </div>
+
+    <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+
+      <li class="ms-3 mt-4">
+        <a class="text-muted" href="#">
+          <!-- <img class="bi" src="<?php //echo base_url('css/images/اینماد.png'); 
+                                    ?>" alt="لوگوی اینماد" width="90"> -->
+          <script src="https://www.zarinpal.com/webservice/TrustCode" type="text/javascript"></script>
+        </a>
+      </li>
+      <li class="ms-3">
+        <!-- <a class="text-muted" href="#"> -->
+        <!-- <img class="bi" src="images/ساماندهی.png" alt="لوگوی ساماندهی" width="100"> -->
+        <!-- </a> -->
+        <img referrerpolicy='origin' id='rgvjjxlznbqenbqewlaorgvj' style='cursor:pointer' onclick='window.open("https://logo.samandehi.ir/Verify.aspx?id=312243&p=xlaorfthuiwkuiwkaodsxlao", "Popup","toolbar=no, scrollbars=no, location=no, statusbar=no, menubar=no, resizable=0, width=450, height=630, top=30")' alt='logo-samandehi' src='https://logo.samandehi.ir/logo.aspx?id=312243&p=qftinbpdodrfodrfshwlqfti' />
+
+      </li>
+    </ul>
+  </footer>
 
 
     <!-- Option 1: Bootstrap Bundle with Popper -->

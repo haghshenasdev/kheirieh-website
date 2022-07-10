@@ -35,7 +35,8 @@ class form_controler extends CI_Controller
             'menus' => $this->db_model->get_menus(),
             'hadis_random_sadagheh' => $this->db_model->get_hadis('صدقه'),
             'type_data' => $type_data,
-            'all_type' => $all_type
+            'all_type' => $all_type,
+            'setting' => $this->db_model->get_setting()
         );
 
 
