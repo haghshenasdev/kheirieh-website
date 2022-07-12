@@ -86,21 +86,21 @@
                     <label for="message-text" class="col-form-label px-3"> مبلغ: </label>
                     <div class="input-group mb-3">
 
-                        <input id="amount" name="amount" class="form-control" type="text" value="<?php echo set_value('amount'); ?>" placeholder="100,000" placeholder="123,985,659" aria-label="Amount (to the nearest dollar)">
+                        <input id="amount" name="amount" class="form-control" type="number" value="<?=set_value('amount')?>" aria-label="Amount (to the nearest dollar)">
                         <span class="input-group-text">تومان</span>
                     </div>
 
                     <div class="mb-3">
                         <label for="name" class="col-form-label">نام و نام خانوادگی :</label>
-                        <input type="text" class="form-control" id="name" name="name" value="<?php echo set_value('name'); ?>">
+                        <input type="text" class="form-control" id="name" name="name" value="<?= (set_value('name') == '')? get_cookie('name') : set_value('name') ?>">
                     </div>
                     <div class="mb-3">
                         <label for="phone" class="col-form-label">شماره تماس :</label>
-                        <input type="text" class="form-control" id="phone" name="phone" value="<?php echo set_value('phone'); ?>">
+                        <input type="text" class="form-control" id="phone" name="phone" value="<?= (set_value('phone') == '')? get_cookie('phone') : set_value('phone') ?>">
                     </div>
                     <div class="mb-3">
                         <label for="phone" class="col-form-label">ایمیل (اختیاری):</label>
-                        <input type="text" class="form-control" id="email" name="email" <?php echo set_value('email'); ?>>
+                        <input type="text" class="form-control" id="email" name="email" value="<?= (set_value('email') == '')? get_cookie('email') : set_value('email') ?>">
                     </div>
                     <script src="https://www.google.com/recaptcha/api.js"></script>
                     <script>

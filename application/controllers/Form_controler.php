@@ -40,15 +40,18 @@ class form_controler extends CI_Controller
         );
 
 
-
+        $this->load->helper('cookie');
+        
         if ($this->form_validation->run() == FALSE) {
             $this->load->view('formp', $data);
         } else {
-
+            
             $name = $this->input->post('name');
             $amount = $this->input->post('amount');
             $phone = $this->input->post('phone');
             $email = $this->input->post('email');
+
+            $this->setco($name,$phone,$email);
 
             if ($type_data[0]->id == 0) {
                 $type_data = $this->db_model->get_pay_type_id($this->input->post('type'));
@@ -109,14 +112,19 @@ class form_controler extends CI_Controller
                 $authority
             );
 
-            $this->load->view('formsuccess', array('faktoor' => $faktoor, 'menus' => $menu));
+            $this->load->view('formsuccess', array('faktoor' => $faktoor, 'menus' => $menu, 'setting' => $this->db_model->get_setting()));
         } else {
             $error = $this->zarinpal->get_error();
             // payment failed
-            $this->load->view('formFailed', ['menus' => $menu, 'error' => $error]);
+            $this->load->view('formFailed', ['menus' => $menu, 'error' => $error, 'setting' => $this->db_model->get_setting()]);
         }
     }
 
+    private function setco($name,$phone,$email){
+        set_cookie('name', $name,365*24*60);
+            set_cookie('phone', $phone,365*24*60);
+            set_cookie('email', $email,365*24*60);
+    }
 
     //vlidate method
     public function valid_type($val)
