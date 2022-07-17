@@ -1,11 +1,7 @@
 <div class="container">
-  <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
-    <div class="col-md-4 d-flex align-items-center">
-      <a href="/" class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1">
-        <svg class="bi" width="30" height="24">
-          <use xlink:href="#bootstrap"></use>
-        </svg>
-      </a>
+  <footer class="d-flex flex-wrap justify-content-center justify-content-md-between align-items-center py-3 my-4 border-top">
+    <div class="col-md-4 d-flex text-center text-md-start mb-3">
+      
       <span class="text-muted">تمامی حقوق برای خیریه محفوظ است.
         <br>
         آدرس : <?php echo $setting[4]->data ?></span>
@@ -27,16 +23,25 @@
         <img referrerpolicy='origin' id='rgvjjxlznbqenbqewlaorgvj' style='cursor:pointer' onclick='window.open("https://logo.samandehi.ir/Verify.aspx?id=312243&p=xlaorfthuiwkuiwkaodsxlao", "Popup","toolbar=no, scrollbars=no, location=no, statusbar=no, menubar=no, resizable=0, width=450, height=630, top=30")' alt='logo-samandehi' src='https://logo.samandehi.ir/logo.aspx?id=312243&p=qftinbpdodrfodrfshwlqfti' />
 
       </li>
+      <li class="ms-3 mt-2">
+        <!-- <a class="text-muted" href="#"> -->
+        <!-- <img class="bi" src="images/ساماندهی.png" alt="لوگوی ساماندهی" width="100"> -->
+        <!-- </a> -->
+
+
+        <a referrerpolicy="origin" target="_blank" href="https://trustseal.enamad.ir/?id=285400&amp;Code=u3UxWQEiwx7DeoBs71ep"><img referrerpolicy="origin" src="https://Trustseal.eNamad.ir/logo.aspx?id=285400&amp;Code=u3UxWQEiwx7DeoBs71ep" alt="" style="cursor:pointer" id="u3UxWQEiwx7DeoBs71ep"></a>
+
+
+
+      </li>
     </ul>
   </footer>
 
 
-    <!-- Option 1: Bootstrap Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
-        crossorigin="anonymous"></script>
+  <!-- Option 1: Bootstrap Bundle with Popper -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 
 
 
 
-</body>
+  </body>
