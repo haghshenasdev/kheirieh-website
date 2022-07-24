@@ -90,7 +90,7 @@
                                 http.onload = function() {
                                     document.getElementById("tozih").innerHTML = this.responseText;
                                 }
-                                http.open("GET", "<?= base_url('index.php/typedescription/getdescriptionty/') ?>"+ op[i].value, true);
+                                http.open("GET", "<?= base_url('index.php/TypeDescription/getdescriptionty/') ?>"+ op[i].value, true);
                                 http.send();
                             }
                             Window.onload = ShowInfos();
