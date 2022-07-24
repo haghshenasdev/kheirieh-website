@@ -28,7 +28,7 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.rtl.min.css" integrity="sha384-+qdLaIRZfNu4cVPK/PxJJEy0B0f3Ugv8i482AKY7gwXwhaCroABd086ybrVKTa0q" crossorigin="anonymous">
 
   <link rel="stylesheet" href="<?php echo base_url('css/style.css'); ?>">
-  <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/animate.css/3.2.6/animate.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.2.6/animate.min.css" />
   <link rel="icon" type="image/x-icon" href="<?php echo base_url('css/images/logo.svg'); ?>">
   <title>خیریه امام علی ابن ابی طالب (ع) گرگاب</title>
 </head>
