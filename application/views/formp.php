@@ -93,7 +93,7 @@
                                 http.open("GET", "<?= base_url('index.php/TypeDescription/getdescriptionty/') ?>"+ op[i].value, true);
                                 http.send();
                             }
-                            Window.onload = ShowInfos();
+  
                         </script>
                     <?php endif; ?>
 

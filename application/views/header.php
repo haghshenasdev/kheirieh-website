@@ -2,6 +2,9 @@
 <html lang="fa" dir="rtl">
 
 <head>
+
+  <?php include "pwaui/pwai.php" ?>
+
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
@@ -37,8 +40,8 @@
 
   <main class="font-sans">
     <div id="header-image" class="mb-5">
-      
-      <?php include("date-time.php");?>
+
+      <?php include("date-time.php"); ?>
 
       <nav class="mynawmenu navbar navbar-expand-lg navbar-light">
         <div class="container">
@@ -52,9 +55,9 @@
 
             <ul class="navbar-nav My-nav me-auto mb-2 mb-lg-0 justify-content-center">
               <?php
-              
-              foreach($menus as $row): ?>
-              <li class="nav-item"><a href="<?php echo $this->show_menu->is_inerlink_show_menus($row->url); ?>" class="my-nav-link"><?php echo $row->title ?></a></li>
+
+              foreach ($menus as $row) : ?>
+                <li class="nav-item"><a href="<?php echo $this->show_menu->is_inerlink_show_menus($row->url); ?>" class="my-nav-link"><?php echo $row->title ?></a></li>
               <?php endforeach; ?>
             </ul>
 

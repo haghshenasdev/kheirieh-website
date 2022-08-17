@@ -194,7 +194,6 @@
     </div>
   </div>
 <?php endif; ?>
-
 <!-- wordpress posts  -->
 <?php if ($setting[5]->data == 1) :
   // Include Wordpress 
