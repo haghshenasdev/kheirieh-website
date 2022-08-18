@@ -1,11 +1,19 @@
 <?php include("header.php"); ?>
 
-<div class="container p-5">
-  <div class="row">
+<div class="container pb-3">
+  <div class="row mt-2">
     <div class="col-md-6 text-center p-3 py-4" id="hadis">
       <h4><?php echo $hadis_random['gala'] ?> :</h4>
       <p><?php echo $hadis_random['arabi'] ?></p>
       <p><?php echo $hadis_random['farsi'] ?></p>
+      <div class="row mt-3">
+        <div class="col-lg col-10 m-auto p-2">
+        <a href="<?php echo base_url('index.php/form_controler/pay/sadagheh') ?>" class="w-100 btn btn-outline-light" dideo-checked="true">پرداخت سریع صدقه</a>
+        </div>
+        <div class="col-lg col-10 m-auto p-2">
+        <a href="<?php echo base_url('index.php/form_controler/pay/komak') ?>" class="w-100 btn btn-outline-light" dideo-checked="true">کمک کردن</a>
+        </div>
+      </div>
     </div>
   </div>
 </div>
@@ -306,7 +314,7 @@
 <div class="container">
   <footer class="d-flex flex-wrap justify-content-center justify-content-md-between align-items-center py-3 my-4 border-top">
     <div class="col-md-4 d-flex text-center text-md-start mb-3">
-      
+
       <span class="text-muted">تمامی حقوق برای خیریه محفوظ است.
         <br>
         آدرس : <?php echo $setting[4]->data ?></span>
