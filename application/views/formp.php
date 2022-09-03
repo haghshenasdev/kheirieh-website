@@ -76,7 +76,7 @@
                             <label for="type" class="col-form-label">نوع و مواد مصرف :</label>
                             <select onchange="ShowInfos()" class="form-select" id="type" name="type" aria-label="Default select example">
                                 <?php foreach ($all_type as $row) : ?>
-                                    <option selected value="<?php echo $row->id ?>"><?php echo $row->title ?></option>
+                                    <?php if($row->is_active == 1): ?><option selected value="<?php echo $row->id ?>"><?php echo $row->title ?></option><?php endif; ?>
                                 <?php endforeach; ?>
                             </select>
                         </div>
