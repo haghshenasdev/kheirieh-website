@@ -8,10 +8,10 @@
       <p><?= $hadis_random['farsi'] ?></p>
       <div class="row mt-3">
         <div class="col-lg col-10 m-auto p-2">
-        <a href="<?= base_url('index.php/form_controler/pay/sadagheh') ?>" class="w-100 btn btn-outline-light" dideo-checked="true">پرداخت سریع صدقه</a>
+          <a href="<?= base_url('index.php/form_controler/pay/sadagheh') ?>" class="w-100 btn btn-outline-light" dideo-checked="true">پرداخت سریع صدقه</a>
         </div>
         <div class="col-lg col-10 m-auto p-2">
-        <a href="<?= base_url('index.php/form_controler/pay/komak') ?>" class="w-100 btn btn-outline-light" dideo-checked="true">کمک کردن</a>
+          <a href="<?= base_url('index.php/form_controler/pay/komak') ?>" class="w-100 btn btn-outline-light" dideo-checked="true">کمک کردن</a>
         </div>
       </div>
     </div>
@@ -113,20 +113,18 @@
   <div id="download-app" class="ThemeStyle-gradient">
     <div class="container col-xxl-8 px-4 py-5">
       <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
-
         <div class="col-lg-6 text-light text-center">
-          <img src="<?= base_url('css/images/android-logo.svg'); ?>" class="m-auto mx-lg-auto img-fluid" alt="Bootstrap Themes" loading="lazy" width="100">
-          <h3 style="margin-top: 20px;" class="  lh-1 mb-3">دانلود نرم افزار خیریه</h3>
-          <div class="d-grid gap-2">
-            <a href="<?= $setting[8]->data ?>" class="btn btn-outline-light"><img src="<?= base_url('css/images/download.svg'); ?>" alt="آیکون دانلود" width="20px"> دانلود مستقیم </a>
-            <!-- <a href="<?php //echo $setting[9]->data 
-                          ?>" class="btn btn-outline-light"><img src="<?php //echo base_url('css/images/download.svg'); 
-                                                                      ?>" alt="آیکون دانلود" width="20px"> دانلود از کافه بازار </a> -->
-          </div>
+          <img src="<?= base_url('css/images/aplication-logo.png'); ?>" class="m-auto mx-lg-auto img-fluid" alt="Bootstrap Themes" loading="lazy" width="100">
+            <div class="d-grid gap-2 mt-3">
+              <a href="<?= $setting[8]->data ?>" class="btn btn-outline-light"><img src="<?= base_url('css/images/download.svg'); ?>" alt="آیکون دانلود" width="20px"> دانلود نسخه اندروید </a>
+              <a href="<?= base_url('index.php/app')?>" class="btn btn-outline-light"> نسخه تحت وب (PWA)</a>
+            </div>
         </div>
 
         <div class="col-lg-6 text-center m-auto my-5">
+          
           <div class="d-block mx-lg-auto img-fluid text-light" width="100%" height="50">
+          <h3 style="margin-top: 20px;" class="lh-1 mb-3">دانلود نرم افزار خیریه</h3>
             <p>نرم افزار خیریه امکان کمک به نیاز مندان ، پرداخت صدقه و مشارکت در امور خیر و عام المنفعه را در هر زمان و همه جا فراهم می کند .</p>
           </div>
         </div>
@@ -285,8 +283,8 @@
                 <div class="progress-bar bg-danger" style="width: <?= $row->pishraft . '%'; ?>;" role="progressbar" aria-valuenow="<?= $row->pishraft . '%'; ?>" aria-valuemin="0" aria-valuemax="100"><?= $row->pishraft . '%'; ?></div>
               </div>
               <a href="index.php/Project_C/index/<?= $row->page_name; ?>" style="margin-top: 20px;" class="btn btn-outline-light ThemeStyle-border">اطلاعات بیشتر</a>
-              <?php if($row->pishraft != '100'): ?>
-              <a href="<?= base_url('index.php/form_controler/pay/komak') ?>" style="margin-top: 20px;" class="btn btn-outline-light ThemeStyle-border">مشارکت در پروژه</a>
+              <?php if ($row->pishraft != '100') : ?>
+                <a href="<?= base_url('index.php/form_controler/pay/komak') ?>" style="margin-top: 20px;" class="btn btn-outline-light ThemeStyle-border">مشارکت در پروژه</a>
               <?php endif; ?>
             </div>
           </div>

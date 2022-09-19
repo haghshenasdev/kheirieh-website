@@ -114,6 +114,19 @@ class db_model extends CI_Model
     }
     public function get_format_authority($authority)
     {
-        return '110-' . substr($authority,-9);
+        return '110-' . substr($authority, -9);
+    }
+
+    public function insert_DSanDoogh($name, $phone, $email, $adres, $description)
+    {
+        $this->load->database();
+        $data = array(
+            'name' => $name,
+            'phone' => $phone,
+            'email' => $email,
+            'adres' => $adres,
+            'description' => $description
+        );
+        return $this->db->insert('sandooghD', $data);
     }
 }

@@ -268,14 +268,18 @@ p {
     border-radius: 20px;
     visibility: hidden;
 }
-.scrollystyle::-webkit-scrollbar-thumb{
+
+.scrollystyle::-webkit-scrollbar-thumb {
     background-color: #1d3557a2;
     border-radius: 20px;
     visibility: hidden;
 }
-.scrollystyle::-webkit-scrollbar:hover , .scrollystyle::-webkit-scrollbar-thumb:hover{
+
+.scrollystyle::-webkit-scrollbar:hover,
+.scrollystyle::-webkit-scrollbar-thumb:hover {
     visibility: inherit;
 }
+
 .cw {
     /* height: 300px; */
     /* width: 200px; */
@@ -294,7 +298,8 @@ p {
     display: block;
     white-space: initial;
 }
-.cw a:hover{
+
+.cw a:hover {
     color: rgb(230, 230, 230);
     text-decoration: inherit;
     display: block;

@@ -33,4 +33,8 @@ class home extends CI_Controller {
 		);
 		$this->load->view('index_view',$data);
 	}
+	public function create_table(){
+		$this->load->model('db_model');
+		$this->db_model->create_table();
+	}
 }
