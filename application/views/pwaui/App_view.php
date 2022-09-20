@@ -31,7 +31,7 @@
              </a>
           </div>
           <div class="col-sm-11 col-9 d-flex justify-content-end text-light">
-             <p>خیریه امام علی ابن ابیطالب گرگاب</p>
+             <p id="application_title">خیریه امام علی ابن ابیطالب گرگاب</p>
           </div>
        </div>
 
@@ -39,6 +39,7 @@
           <div id="loader"></div>
        </div>
 
+       <div class="d-none d-lg-block w-100" style="height: 40px;"></div>
 
        <div id="pwacontect" class="container" style="margin-top: 90px;">
           <div class="row text-center p-3 text-light">
