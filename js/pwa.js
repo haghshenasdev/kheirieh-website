@@ -12,7 +12,7 @@ const links = Array.from(document.getElementsByTagName('a'));
 links.forEach(element => {
     if (element.className !== "ari-fancybox") {
         element.addEventListener('click', event => {
-            ChangeTitle("<div id='loader' style='width: 20px; height: 20px;margin: 5px;position: static;float: right;'></div>");
+            ChangeTitle("<div id='loader' style='width: 20px; height: 20px;margin: 5px;position: static;float: right;'></div><div class='mt-2 ml-2'> درحال باز کردن صفحه...</div>");
         });
     }
 });

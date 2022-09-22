@@ -23,7 +23,7 @@
        border-top-right-radius: 0px;
        padding: 15px;
        box-shadow: 0 2px 3px rgb(0 0 0 / 16%), 0 3px 6px rgb(0 0 0 / 23%);">
-         <div class="col-sm-1 col-3 ">
+         <div class="col-sm-1 col-3 btn-back">
             <button class="btn navbar-brand" onclick="history.back()">
                <svg xmlns="http://www.w3.org/2000/svg" width="30px" fill="currentColor" class="bi bi-forward-fill text-light" viewBox="0 0 16 16">
                   <path d="m9.77 12.11 4.012-2.953a.647.647 0 0 0 0-1.114L9.771 5.09a.644.644 0 0 0-.971.557V6.65H2v3.9h6.8v1.003c0 .505.545.808.97.557z" />

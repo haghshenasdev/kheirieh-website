@@ -348,3 +348,8 @@ p {
     height: 100%;
     background-color: white;
 }
+
+.btn-back{
+    background: none;
+    border: none;
+}
