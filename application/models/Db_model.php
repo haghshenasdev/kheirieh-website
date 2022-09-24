@@ -33,6 +33,12 @@ class db_model extends CI_Model
         $query = $this->db->get_where('type', array('id' => $id));
         return $query->result();
     }
+    public function get_pay_subtype($id)
+    {
+        $this->load->database();
+        $query = $this->db->get_where('type', array('sub' => $id));
+        return $query->result();
+    }
     public function get_types()
     {
         $this->load->database();

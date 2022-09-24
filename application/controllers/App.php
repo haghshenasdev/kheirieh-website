@@ -37,7 +37,56 @@ class App extends CI_Controller
             $data = array(
                 'project_data' => $project_data,
             );
-            $this->load->view('pwaui/App_Header');
+            $this->load->view('pwaui/App_Header',[
+                'head' => '<link rel="stylesheet" id="ari-fancybox-css" href="https://kheiriehemamali.ir/blog/wp-content/plugins/ari-fancy-lightbox/assets/fancybox/jquery.fancybox.min.css?ver=1.3.9" type="text/css" media="all">
+                <script type="text/javascript" src="https://kheiriehemamali.ir/blog/wp-includes/js/jquery/jquery.min.js?ver=3.6.0" id="jquery-core-js"></script>
+                <script type="text/javascript" src="https://kheiriehemamali.ir/blog/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.3.2" id="jquery-migrate-js"></script>
+                <script type="text/javascript" id="ari-fancybox-js-extra">
+                   /* <![CDATA[ */
+                   var ARI_FANCYBOX = {
+                      "lightbox": {
+                         "backFocus": false,
+                         "trapFocus": false,
+                         "thumbs": {
+                            "hideOnClose": false
+                         },
+                         "touch": {
+                            "vertical": true,
+                            "momentum": true
+                         },
+                         "buttons": ["slideShow", "fullScreen", "thumbs", "close"],
+                         "lang": "custom",
+                         "i18n": {
+                            "custom": {
+                               "PREV": "Previous",
+                               "NEXT": "Next",
+                               "PLAY_START": "Start slideshow (P)",
+                               "PLAY_STOP": "Stop slideshow (P)",
+                               "FULL_SCREEN": "Full screen (F)",
+                               "THUMBS": "Thumbnails (G)",
+                               "CLOSE": "Close (Esc)",
+                               "ERROR": "The requested content cannot be loaded. <br\/> Please try again later."
+                            }
+                         }
+                      },
+                      "convert": {
+                         "images": {
+                            "convert": true,
+                            "post_grouping": true,
+                            "convertNameSmart": true
+                         }
+                      },
+                      "viewers": {
+                         "pdfjs": {
+                            "url": "https:\/\/kheiriehemamali.ir\/blog\/wp-content\/plugins\/ari-fancy-lightbox\/assets\/pdfjs\/web\/viewer.html"
+                         }
+                      }
+                   };
+                   /* ]]> */
+                </script>
+                <script type="text/javascript" src="https://kheiriehemamali.ir/blog/wp-content/plugins/ari-fancy-lightbox/assets/fancybox/jquery.fancybox.min.js?ver=1.3.9" id="ari-fancybox-js"></script>
+             '
+            ]);
             $this->load->view('pwaui/projectshow', $data);
             $this->load->view('pwaui/App_Footer');
         } else {
@@ -118,6 +167,10 @@ class App extends CI_Controller
             if ($type_data[0]->id == 0) {
                 $type_data = $this->db_model->get_pay_type_id($this->input->post('type'));
             }
+            if (!is_null($this->input->post("type_sub")) && $this->input->post("type_sub") != 0) {
+                $type_data = $this->db_model->get_pay_type_id($this->input->post('type_sub'));
+            }
+
             $title = $type_data[0]->title;
             $typeid = $type_data[0]->id;
 

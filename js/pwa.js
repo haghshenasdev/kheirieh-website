@@ -10,23 +10,28 @@ function showloding() {
 //show loding from click all links
 const links = Array.from(document.getElementsByTagName('a'));
 links.forEach(element => {
-    if (element.className !== "ari-fancybox") {
-        element.addEventListener('click', event => {
-            ChangeTitle("<div id='loader' style='width: 20px; height: 20px;margin: 5px;position: static;float: right;'></div><div class='mt-2 ml-2'> درحال باز کردن صفحه...</div>");
-        });
-    }
+    element.addEventListener('click', event => {
+        if (!element.classList.contains("ari-fancybox")) {
+            ChangeOutTitle("<div id='loader' class='d-flex justify-content-end' style='width: 20px; height: 20px;margin: 5px;position: static;float: right;'></div><div class='mt-2 ml-2 w-100'> درحال باز کردن صفحه...</div>");
+        }
+    });
 });
-// window.onfocus = ResetTitle();
+//window.onfocus = ResetTitle();
 
 var curentTitle = "";
 
 function ChangeTitle(title) {
-    document.getElementById('application_title').innerHTML;
     document.getElementById('application_title').innerHTML = title;
+}
+
+function ChangeOutTitle(title) {
+    document.getElementById('application_title').outerHTML = title;
 }
 
 function ResetTitle() {
     let text = "خیریه امام علی ابن ابیطالب (ع) گرگاب";
-    if (curentTitle !== "undefined") text = curentTitle;
-    document.getElementById('application_title').innerHTML = text;
+    if (curentTitle == "undefined") {
+        document.getElementById('application_title').innerHTML = text;
+    }
+
 }

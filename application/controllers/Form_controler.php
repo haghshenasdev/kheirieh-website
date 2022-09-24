@@ -56,6 +56,9 @@ class form_controler extends CI_Controller
             if ($type_data[0]->id == 0) {
                 $type_data = $this->db_model->get_pay_type_id($this->input->post('type'));
             }
+            if (!is_null($this->input->post("type_sub")) && $this->input->post("type_sub") != 0) {
+                $type_data = $this->db_model->get_pay_type_id($this->input->post('type_sub'));
+            }
             $title = $type_data[0]->title;
             $typeid = $type_data[0]->id;
 

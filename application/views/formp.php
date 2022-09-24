@@ -76,11 +76,15 @@
                             <label for="type" class="col-form-label">نوع و مواد مصرف :</label>
                             <select onchange="ShowInfos()" class="form-select" id="type" name="type" aria-label="Default select example">
                                 <?php foreach ($all_type as $row) : ?>
-                                    <?php if($row->is_active == 1): ?><option selected value="<?php echo $row->id ?>"><?php echo $row->title ?></option><?php endif; ?>
+                                    <?php if ($row->is_active == 1 && is_null($row->sub)) : ?>
+                                        <option selected value="<?php echo $row->id ?>">
+                                            <?php echo $row->title ?>
+                                        </option>
+                                    <?php endif; ?>
                                 <?php endforeach; ?>
                             </select>
                         </div>
-                        <div class="mb-3 px-2"><label id="tozih"></label></div>
+                        <div class="px-2 mb-3" id="tozih"></div>
                         <script>
                             function ShowInfos() {
                                 const el = document.getElementById("type");
@@ -90,10 +94,21 @@
                                 http.onload = function() {
                                     document.getElementById("tozih").innerHTML = this.responseText;
                                 }
-                                http.open("GET", "<?= base_url('index.php/TypeDescription/getdescriptionty/') ?>"+ op[i].value, true);
+                                http.open("GET", "<?= base_url('index.php/TypeDescription/getdescriptionty/') ?>" + op[i].value, true);
                                 http.send();
                             }
-  
+
+                            function Showtow() {
+                                const el = document.getElementById("type_sub");
+                                var i = el.selectedIndex;
+                                var op = el.options;
+                                const http = new XMLHttpRequest();
+                                http.onload = function() {
+                                    document.getElementById("tozih2").innerHTML = this.responseText;
+                                }
+                                http.open("GET", "<?= base_url('index.php/TypeDescription/getdescriptionty/') ?>" + op[i].value, true);
+                                http.send();
+                            }
                         </script>
                     <?php endif; ?>
 
@@ -126,8 +141,8 @@
 
 
                     <div class="text-center">
-                        <button class="btn btn-light mt-4 ThemeStyle-border px-5 g-recaptcha" data-sitekey="<?php echo $this->config->item('google_key') ?>" data-callback='onSubmit' data-action='submit' type="submit">پرداخت</button>
-                        <a class="btn btn-outline-light mt-4 ThemeStyle-border" href="<?php echo base_url(); ?>" id="BtnBacForm">بازگشت به صفحه اصلی</a>
+                        <button class="btn btn-light mt-4 ThemeStyle-border px-5 g-recaptcha" data-sitekey="<?php echo $this->config->item('google_key') ?>" data-callback='onSubmit' data-action='submit' type="submit"> پرداخت</button>
+                        <button class="btn btn-outline-light mt-4 ThemeStyle-border" type="button" onclick="history.back()">بازگشت به صفحه اصلی</button>
                     </div>
 
                     <?php echo form_close(); ?>
