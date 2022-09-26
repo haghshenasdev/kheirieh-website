@@ -30,7 +30,7 @@
                 <img class="w-100 mx-3" src="<?= base_url('css/images/logo-blue.svg') ?>" aria-label="خیریه امام علی ابن ابیطالب گرگاب">
              </a>
           </div>
-          <div class="col-sm-11 col-9 d-flex justify-content-end text-light">
+          <div id="application_title_div" class="col-sm-11 col-9 d-flex justify-content-end text-light">
              <p id="application_title">خیریه امام علی ابن ابیطالب گرگاب</p>
           </div>
        </div>
@@ -89,7 +89,7 @@
 
                             <div class="card-body pb-5">
                                <section class="content">
-                                  <h5 class="card-title"><?php the_title(); ?></h5>
+                                  <h6 class="card-title"><?php the_title(); ?></h6>
                                   <p><?php the_excerpt(); ?></p>
                                </section>
                             </div>

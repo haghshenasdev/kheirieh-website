@@ -228,11 +228,11 @@ p {
 }
 
 #akhbar .content {
-    height: 150px;
+    height: 100px;
     overflow: hidden;
 }
 
-#akhbar .card-img-top-index {
+#akhbar img {
     object-fit: cover;
     height: 200px;
 

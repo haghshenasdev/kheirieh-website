@@ -41,7 +41,7 @@
                </svg>
             </a> -->
          </div>
-         <div class="col-sm-11 col-9 d-flex justify-content-end text-light">
+         <div id="application_title_div" class="col-sm-11 col-9 d-flex justify-content-end text-light">
 
             <p id="application_title">خیریه امام علی ابن ابیطالب گرگاب</p>
 
