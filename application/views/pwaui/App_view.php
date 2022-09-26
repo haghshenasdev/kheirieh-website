@@ -25,12 +25,12 @@
         border-top-right-radius: 0px;
         padding: 15px;
         box-shadow: 0 2px 3px rgb(0 0 0 / 16%), 0 3px 6px rgb(0 0 0 / 23%);">
-          <div class="col-sm-1 col-3 ">
+          <div class="col-sm-1 col-4 ">
              <a href="<?= base_url('index.php/app') ?>" class="navbar-brand">
                 <img class="w-100 mx-3" src="<?= base_url('css/images/logo-blue.svg') ?>" aria-label="خیریه امام علی ابن ابیطالب گرگاب">
              </a>
           </div>
-          <div class="col-sm-11 col-9 d-flex justify-content-end text-light">
+          <div class="col-sm-11 col-8 d-flex justify-content-end text-light">
              <p id="application_title">خیریه امام علی ابن ابیطالب گرگاب</p>
           </div>
        </div>
@@ -43,25 +43,25 @@
 
        <div id="pwacontect" class="container" style="margin-top: 90px;">
           <div class="row text-center p-3 text-light">
-             <a href="<?= base_url('index.php/App/sandoogh') ?>" class="col-4 nav-link">
+             <a href="<?= base_url('index.php/App/sandoogh') ?>" class="col-4 text-light p-0">
                 <div class="p-1">
-                   <div class="ThemeStyle w-100 p-2"><img class="m-auto mt-3" src="<?= base_url('css/images/sadagheh.svg') ?>" alt="مدد جو" width="50px">
+                   <div class="ThemeStyle w-100 p-2" style="height: 130px;"><img class="m-auto mt-3" src="<?= base_url('css/images/sadagheh.svg') ?>" alt="مدد جو" width="50px">
                       <p class="mt-2">صندوق</p>
                    </div>
 
 
                 </div>
              </a>
-             <a href="<?= base_url() ?>index.php/App/openDonatePage" class="col-4 nav-link">
+             <a href="<?= base_url() ?>index.php/App/openDonatePage" class="col-4 text-light p-0">
                 <div class="p-1">
-                   <div class="ThemeStyle w-100 p-2"><img class="m-auto mt-1" src="<?= base_url('css/images/مددجو.svg') ?>" alt="مدد جو" width="50px">
+                   <div class="ThemeStyle w-100 p-2" style="height: 130px;"><img class="m-auto mt-1" src="<?= base_url('css/images/مددجو.svg') ?>" alt="مدد جو" width="50px">
                       <p class="mt-2">نیکوکاری</p>
                    </div>
                 </div>
              </a>
-             <a href="<?= base_url() ?>index.php/App/openprojects" class="col-4 nav-link">
+             <a href="<?= base_url() ?>index.php/App/openprojects" class="col-4 text-light p-0">
                 <div class="p-1">
-                   <div class="ThemeStyle  w-100 p-2"><img class="m-auto mt-3" src="https://kheiriehemamali.ir/css/images/پروژه عمرانی.svg" alt="مدد جو" width="50px">
+                   <div class="ThemeStyle  w-100 p-2" style="height: 130px;"><img class="m-auto mt-3" src="https://kheiriehemamali.ir/css/images/پروژه عمرانی.svg" alt="مدد جو" width="50px">
                       <p class="mt-2">پروژه ها</p>
                    </div>
                 </div>
@@ -70,18 +70,18 @@
 
           <!-- wordpress posts  -->
           <?php
-            // Include Wordpress 
+            // Include Wordpress
             define('WP_USE_THEMES', false);
-            require('././blog/wp-blog-header.php');
-            query_posts('showposts=4');
-            ?>
+require('././blog/wp-blog-header.php');
+query_posts('showposts=4');
+?>
           <div class="container px-4 py-1 " id="akhbar">
              <h2 class="pb-2 border-bottom font-sans text-dark">آخرین مطالب و اخبار</h2>
 
              <div class="row row-cols-1 row-cols-lg-4 align-items-center g-4 py-2 text-center text-light">
                 <?php
-                  while (have_posts()) : the_post();
-                  ?>
+      while (have_posts()) : the_post();
+          ?>
                    <div class="col">
                       <a href="<?= base_url() ?>index.php/App/openpost?url=<?php the_permalink(); ?>">
                          <div class="card ThemeStyle h-100 ThemeStyleShadow-Hover">
