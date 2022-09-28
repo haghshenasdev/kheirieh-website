@@ -30,7 +30,7 @@
                 <img class="w-100 mx-3" src="<?= base_url('css/images/logo-blue.svg') ?>" aria-label="خیریه امام علی ابن ابیطالب گرگاب">
              </a>
           </div>
-          <div id="application_title_div" class="col-sm-11 col-9 d-flex justify-content-end text-light">
+          <div id="application_title_div" class="col-sm-11 col-8 d-flex justify-content-end text-light">
              <p id="application_title">خیریه امام علی ابن ابیطالب گرگاب</p>
           </div>
        </div>
