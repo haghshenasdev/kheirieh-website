@@ -42,6 +42,7 @@
        <div class="d-none d-lg-block w-100" style="height: 40px;"></div>
 
        <div id="pwacontect" class="container" style="margin-top: 90px;">
+          <!-- navication -->
           <div class="row text-center p-3 text-light">
              <a href="<?= base_url('index.php/App/sandoogh') ?>" class="col-4 nav-link">
                 <div class="p-1">
@@ -67,39 +68,66 @@
                 </div>
              </a>
           </div>
+          <!-- end navication -->
 
-          <!-- wordpress posts  -->
-          <?php
-            // Include Wordpress 
-            define('WP_USE_THEMES', false);
-            require('././blog/wp-blog-header.php');
-            query_posts('showposts=4');
-            ?>
-          <div class="container px-4 py-1 " id="akhbar">
-             <h2 class="pb-2 border-bottom font-sans text-dark">آخرین مطالب و اخبار</h2>
-
-             <div class="row row-cols-1 row-cols-lg-4 align-items-center g-4 py-2 text-center text-light">
-                <?php
-                  while (have_posts()) : the_post();
-                  ?>
-                   <div class="col">
-                      <a href="<?= base_url() ?>index.php/App/openpost?url=<?php the_permalink(); ?>">
-                         <div class="card ThemeStyle h-100 ThemeStyleShadow-Hover">
-                            <img src="<?= get_the_post_thumbnail_url(); ?>" class="card-img-top" alt="<?= the_post_thumbnail_caption(); ?>">
-
-                            <div class="card-body pb-5">
-                               <section class="content">
-                                  <h6 class="card-title"><?php the_title(); ?></h6>
-                                  <p><?php the_excerpt(); ?></p>
-                               </section>
-                            </div>
-                         </div>
-                      </a>
+          <div class="row mb-2">
+             <div id="carouselExampleControls" class="carousel slide carousel-fade" data-bs-ride="carousel">
+                <div class="carousel-inner card" style="display: block;">
+                   <div class="carousel-item active">
+                      <img src="http://localhost:8081/kheirieh/css/images/alamdar/%D8%A8%DB%8C%D8%AA%20%D8%A7%D9%84%D8%B9%D8%A8%D8%A7%D8%B3.jpg" class="d-block w-100" alt="...">
                    </div>
-                <?php endwhile; ?>
+                   <div class="carousel-item">
+                      <img src="http://localhost:8081/kheirieh/css/images/orzans-115/%D8%A7%D9%88%D8%B1%DA%98%D8%A7%D9%86%D8%B3.jpg" class="d-block w-100" alt="...">
+                   </div>
+                   <div class="carousel-item">
+                      <img src="http://localhost:8081/kheirieh/css/images/orzans-115/%D8%A7%D9%88%D8%B1%DA%98%D8%A7%D9%86%D8%B3.jpg" class="d-block w-100" alt="...">
+                   </div>
+                </div>
+                <!-- <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+                   <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                   <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+                   <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                   <span class="visually-hidden">Next</span>
+                </button> -->
              </div>
           </div>
-          <!-- end wordpress posts  -->
+
+       </div>
+
+       <!-- wordpress posts  -->
+       <?php
+         // Include Wordpress 
+         define('WP_USE_THEMES', false);
+         require('././blog/wp-blog-header.php');
+         query_posts('showposts=4');
+         ?>
+       <div class="container px-4 py-1 " id="akhbar">
+          <h2 class="pb-2 border-bottom font-sans text-dark">آخرین مطالب و اخبار</h2>
+
+          <div class="row row-cols-1 row-cols-lg-4 align-items-center g-4 py-2 text-center text-light">
+             <?php
+               while (have_posts()) : the_post();
+               ?>
+                <div class="col">
+                   <a href="<?= base_url() ?>index.php/App/openpost?url=<?php the_permalink(); ?>">
+                      <div class="card ThemeStyle h-100 ThemeStyleShadow-Hover">
+                         <img src="<?= get_the_post_thumbnail_url(); ?>" class="card-img-top" alt="<?= the_post_thumbnail_caption(); ?>">
+
+                         <div class="card-body pb-5">
+                            <section class="content">
+                               <h6 class="card-title"><?php the_title(); ?></h6>
+                               <p><?php the_excerpt(); ?></p>
+                            </section>
+                         </div>
+                      </div>
+                   </a>
+                </div>
+             <?php endwhile; ?>
+          </div>
+       </div>
+       <!-- end wordpress posts  -->
 
        </div>
 
@@ -125,15 +153,15 @@
     <!-- Optional JavaScript; choose one of the two! -->
 
     <!-- Option 1: Bootstrap Bundle with Popper -->
-    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script> -->
-    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+
     <script src="<?= base_url('js/pwa.js'); ?>"></script>
 
     <!-- Option 2: Separate Popper and Bootstrap JS -->
-    <!--
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.min.js" integrity="sha384-ODmDIVzN+pFdexxHEHFBQH3/9/vQ9uori45z4JjnFsRydbmQbmL5t1tQ0culUzyK" crossorigin="anonymous"></script>
-    -->
+    
+    <!-- <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script> -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.min.js" integrity="sha384-ODmDIVzN+pFdexxHEHFBQH3/9/vQ9uori45z4JjnFsRydbmQbmL5t1tQ0culUzyK" crossorigin="anonymous"></script> -->
+   
 
  </body>
 

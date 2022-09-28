@@ -354,3 +354,17 @@ p {
     background-image: none !important;
     border: none !important;
 }
+
+.pooyesh-card{
+    min-width: unset !important;
+    max-width: unset !important;
+    min-height: unset !important;
+    max-height: unset !important;
+    width: 400px !important;
+    margin-right: 10px;
+    box-shadow: none !important;
+    padding: 0 !important;
+}
+.pooyesh-card-sub{
+    width: 400px;
+}
