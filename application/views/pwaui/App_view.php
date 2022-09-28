@@ -25,7 +25,7 @@
         border-top-right-radius: 0px;
         padding: 15px;
         box-shadow: 0 2px 3px rgb(0 0 0 / 16%), 0 3px 6px rgb(0 0 0 / 23%);">
-          <div class="col-sm-1 col-3 ">
+          <div class="col-sm-1 col-4 ">
              <a href="<?= base_url('index.php/app') ?>" class="navbar-brand">
                 <img class="w-100 mx-3" src="<?= base_url('css/images/logo-blue.svg') ?>" aria-label="خیریه امام علی ابن ابیطالب گرگاب">
              </a>
@@ -44,25 +44,25 @@
        <div id="pwacontect" class="container" style="margin-top: 90px;">
           <!-- navication -->
           <div class="row text-center p-3 text-light">
-             <a href="<?= base_url('index.php/App/sandoogh') ?>" class="col-4 nav-link">
+             <a href="<?= base_url('index.php/App/sandoogh') ?>" class="col-4 text-light p-0">
                 <div class="p-1">
-                   <div class="ThemeStyle w-100 p-2"><img class="m-auto mt-3" src="<?= base_url('css/images/sadagheh.svg') ?>" alt="مدد جو" width="50px">
+                   <div class="ThemeStyle w-100 p-2" style="height: 130px;"><img class="m-auto mt-3" src="<?= base_url('css/images/sadagheh.svg') ?>" alt="مدد جو" width="50px">
                       <p class="mt-2">صندوق</p>
                    </div>
 
 
                 </div>
              </a>
-             <a href="<?= base_url() ?>index.php/App/openDonatePage" class="col-4 nav-link">
+             <a href="<?= base_url() ?>index.php/App/openDonatePage" class="col-4 text-light p-0">
                 <div class="p-1">
-                   <div class="ThemeStyle w-100 p-2"><img class="m-auto mt-1" src="<?= base_url('css/images/مددجو.svg') ?>" alt="مدد جو" width="50px">
+                   <div class="ThemeStyle w-100 p-2" style="height: 130px;"><img class="m-auto mt-1" src="<?= base_url('css/images/مددجو.svg') ?>" alt="مدد جو" width="50px">
                       <p class="mt-2">نیکوکاری</p>
                    </div>
                 </div>
              </a>
-             <a href="<?= base_url() ?>index.php/App/openprojects" class="col-4 nav-link">
+             <a href="<?= base_url() ?>index.php/App/openprojects" class="col-4 text-light p-0">
                 <div class="p-1">
-                   <div class="ThemeStyle  w-100 p-2"><img class="m-auto mt-3" src="https://kheiriehemamali.ir/css/images/پروژه عمرانی.svg" alt="مدد جو" width="50px">
+                   <div class="ThemeStyle  w-100 p-2" style="height: 130px;"><img class="m-auto mt-3" src="https://kheiriehemamali.ir/css/images/پروژه عمرانی.svg" alt="مدد جو" width="50px">
                       <p class="mt-2">پروژه ها</p>
                    </div>
                 </div>
