@@ -74,13 +74,10 @@
              <div id="carouselExampleControls" class="carousel slide carousel-fade" data-bs-ride="carousel">
                 <div class="carousel-inner card" style="display: block;">
                    <div class="carousel-item active">
-                      <img src="http://localhost:8081/kheirieh/css/images/alamdar/%D8%A8%DB%8C%D8%AA%20%D8%A7%D9%84%D8%B9%D8%A8%D8%A7%D8%B3.jpg" class="d-block w-100" alt="...">
+                      <img src="<?= base_url() ?>/css/images/alamdar/%D8%A8%DB%8C%D8%AA%20%D8%A7%D9%84%D8%B9%D8%A8%D8%A7%D8%B3.jpg" class="d-block w-100" alt="...">
                    </div>
                    <div class="carousel-item">
-                      <img src="http://localhost:8081/kheirieh/css/images/orzans-115/%D8%A7%D9%88%D8%B1%DA%98%D8%A7%D9%86%D8%B3.jpg" class="d-block w-100" alt="...">
-                   </div>
-                   <div class="carousel-item">
-                      <img src="http://localhost:8081/kheirieh/css/images/orzans-115/%D8%A7%D9%88%D8%B1%DA%98%D8%A7%D9%86%D8%B3.jpg" class="d-block w-100" alt="...">
+                      <img src="<?= base_url() ?>/css/images/orzans-115/%D8%A7%D9%88%D8%B1%DA%98%D8%A7%D9%86%D8%B3.jpg" class="d-block w-100" alt="...">
                    </div>
                 </div>
                 <!-- <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
