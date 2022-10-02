@@ -68,6 +68,16 @@ class db_model extends CI_Model
         return $query->result_array();
     }
 
+    public function get_slide_show()
+    {
+        $this->load->database();
+        $query = $this->db->get_where('slide_show', [
+            'is_active' => 1
+        ]);
+
+        return $query->result_array();
+    }
+
     public function get_hadis($subject = null, $id = null)
     {
         $this->load->database();

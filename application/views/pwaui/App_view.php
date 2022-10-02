@@ -69,28 +69,38 @@
              </a>
           </div>
           <!-- end navication -->
-
-          <div class="row mb-2">
-             <div id="carouselExampleControls" class="carousel slide carousel-fade" data-bs-ride="carousel">
-                <div class="carousel-inner card" style="display: block;">
-                   <div class="carousel-item active">
-                      <img src="<?= base_url() ?>/css/images/alamdar/%D8%A8%DB%8C%D8%AA%20%D8%A7%D9%84%D8%B9%D8%A8%D8%A7%D8%B3.jpg" class="d-block w-100" alt="...">
-                   </div>
-                   <div class="carousel-item">
-                      <img src="<?= base_url() ?>/css/images/orzans-115/%D8%A7%D9%88%D8%B1%DA%98%D8%A7%D9%86%D8%B3.jpg" class="d-block w-100" alt="...">
+          <?php if (count($slideshows) > 0) : ?>
+             <div class="row mb-2 text-center align-items-center">
+                <div class="col-lg-6 d-none d-lg-block">
+                   <h4 class="title-color"><?php echo $hadis_random_sadagheh['gala'] ?> :</h4>
+                   <p><?php echo $hadis_random_sadagheh['arabi'] ?></p>
+                   <p><?php echo $hadis_random_sadagheh['farsi'] ?></p>
+                </div>
+                <div class="col-lg-6">
+                   <div id="carouselExampleControls" class="carousel slide carousel-fade" data-bs-ride="carousel">
+                      <div class="carousel-inner card" style="display: block;">
+                         <?php foreach ($slideshows as $slide) : ?>
+                            <div class="carousel-item active">
+                               <img src="<?= $slide['url'] ?>" class="d-block w-100" alt="...">
+                            </div>
+                         <?php endforeach; ?>
+                      </div>
+                      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+                         <svg xmlns="http://www.w3.org/2000/svg" width="40%" fill="currentColor" class="bi bi-arrow-left-circle" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-4.5-.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5z" />
+                         </svg>
+                         <span class="visually-hidden">Previous</span>
+                      </button>
+                      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+                         <svg xmlns="http://www.w3.org/2000/svg" width="40%" fill="currentColor" class="bi bi-arrow-right-circle" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z" />
+                         </svg>
+                         <span class="visually-hidden">Next</span>
+                      </button>
                    </div>
                 </div>
-                <!-- <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
-                   <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                   <span class="visually-hidden">Previous</span>
-                </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
-                   <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                   <span class="visually-hidden">Next</span>
-                </button> -->
              </div>
-          </div>
-
+          <?php endif; ?>
        </div>
 
        <!-- wordpress posts  -->
@@ -155,10 +165,10 @@
     <script src="<?= base_url('js/pwa.js'); ?>"></script>
 
     <!-- Option 2: Separate Popper and Bootstrap JS -->
-    
+
     <!-- <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script> -->
     <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.min.js" integrity="sha384-ODmDIVzN+pFdexxHEHFBQH3/9/vQ9uori45z4JjnFsRydbmQbmL5t1tQ0culUzyK" crossorigin="anonymous"></script> -->
-   
+
 
  </body>
 

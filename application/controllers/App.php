@@ -15,7 +15,11 @@ class App extends CI_Controller
     public function index()
     {
         $this->load->helper("url");
-        $this->load->view('pwaui/App_view');
+        $this->load->model('db_model');
+        $this->load->view('pwaui/App_view',[
+            'hadis_random_sadagheh' => $this->db_model->get_hadis('صدقه'),
+            'slideshows' => $this->db_model->get_slide_show()
+        ]);
     }
     public function openpost()
     {
