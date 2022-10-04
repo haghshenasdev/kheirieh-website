@@ -4,7 +4,7 @@
     <label for="type_sub" class="col-form-label">انتخاب نوع جزئی تر :</label>
     <select onchange="Showtow()" class="form-select mb-2" id="type_sub" name="type_sub" aria-label="Default select example">
         <option selected value="0">
-            همه موراد زیر مجموعه
+            همه موارد زیر مجموعه
         </option>
         <?php foreach ($subtype as $row) : ?>
             <?php if ($row->is_active == 1) : ?>
