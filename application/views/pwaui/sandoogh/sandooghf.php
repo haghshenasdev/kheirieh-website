@@ -18,7 +18,7 @@
                     </div>
                     <div class="mb-3">
                         <label for="phone" class="col-form-label">شماره تماس :</label>
-                        <input type="text" class="form-control" id="phone" name="phone" value="<?= (set_value('phone') == '') ? get_cookie('phone') : set_value('phone') ?>">
+                        <input type="number" class="form-control" id="phone" name="phone" value="<?= (set_value('phone') == '') ? get_cookie('phone') : set_value('phone') ?>">
                     </div>
                     <div class="mb-3">
                         <label for="email" class="col-form-label">ایمیل (اختیاری):</label>
