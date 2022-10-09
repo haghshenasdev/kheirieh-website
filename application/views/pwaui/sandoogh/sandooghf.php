@@ -37,7 +37,7 @@
 
 
                     <div class="text-center">
-                        <button class="btn btn-light mt-4 ThemeStyle-border px-5 g-recaptcha" data-sitekey="<?php echo $this->config->item('google_key') ?>" onclick="this.innerHTML = '<div class=\'spinner-border spinner-border-sm text-dark\' role=\'status\'><span class=\'visually-hidden\'>Loading...</span></div>'" data-callback='onSubmit' data-action='submit' type="submit">ثبت درخواست</button>
+                        <button class="btn btn-light mt-4 ThemeStyle-border px-5 g-recaptcha" data-sitekey="<?php echo $this->config->item('google_key') ?>" onclick="this.innerHTML = '<span class=\'spinner-border spinner-border-sm text-dark\' role=\'status\'></span> درحال ارسال...'" data-callback='onSubmit' data-action='submit' type="submit">ثبت درخواست</button>
                         <button class="btn btn-outline-light mt-4 ThemeStyle-border" type="button" onclick="history.back()">بازگشت به صفحه اصلی</button>
                     </div>
 
