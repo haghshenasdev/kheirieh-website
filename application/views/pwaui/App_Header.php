@@ -24,30 +24,18 @@
 
    <main class="font-sans">
 
-      <div class="ThemeStyle row align-items-center fixed-top" style="border-top-left-radius: 0px;
-       border-top-right-radius: 0px;
-       padding: 15px;
-       box-shadow: 0 2px 3px rgb(0 0 0 / 16%), 0 3px 6px rgb(0 0 0 / 23%);">
-         <div class="col-sm-1 col-3">
-            <button class="btn navbar-brand btn-back" onclick="history.back()">
+	<nav class="navbar ThemeStyle fixed-top pwa-nav">
+ 			<div class="container">
+			 <button class="btn navbar-brand btn-back" onclick="history.back()">
                <svg xmlns="http://www.w3.org/2000/svg" width="30px" fill="currentColor" class="bi bi-forward-fill text-light" viewBox="0 0 16 16">
                   <path d="m9.77 12.11 4.012-2.953a.647.647 0 0 0 0-1.114L9.771 5.09a.644.644 0 0 0-.971.557V6.65H2v3.9h6.8v1.003c0 .505.545.808.97.557z" />
                </svg>
             </button>
-            <!-- <a href="<?php //base_url('index.php/app') 
-                           ?>" class="navbar-brand">
-               <svg xmlns="http://www.w3.org/2000/svg" width="30px" fill="currentColor" class="bi bi-forward-fill text-light" viewBox="0 0 16 16">
-                  <path d="m9.77 12.11 4.012-2.953a.647.647 0 0 0 0-1.114L9.771 5.09a.644.644 0 0 0-.971.557V6.65H2v3.9h6.8v1.003c0 .505.545.808.97.557z" />
-               </svg>
-            </a> -->
-         </div>
-         <div id="application_title_div" class="col-sm-11 col-9 d-flex justify-content-end text-light">
-
-            <p id="application_title">خیریه امام علی(ع) گرگاب</p>
-
-         </div>
-
-      </div>
+ 				<div id="application_title_div" class="d-flex text-light">
+ 					<p id="application_title" class="navbar-text text-light">خیریه امام علی(ع) گرگاب</p>
+ 				</div>
+ 			</div>
+ 		</nav>
 
       <div id="loaderbg">
          <div id="loader"></div>
