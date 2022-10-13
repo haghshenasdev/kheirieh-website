@@ -25,7 +25,61 @@ class App extends CI_Controller
     {
         if (isset($_GET['url']) || !isNull($_GET['url'])) {
             $this->load->helper("url");
-            $this->load->view('pwaui/App_Header');
+			require('././blog/wp-blog-header.php');
+            $this->load->view('pwaui/App_Header',
+			[
+                'head' => '
+				<link rel="stylesheet" id="ari-fancybox-css" href="https://kheiriehemamali.ir/blog/wp-content/plugins/ari-fancy-lightbox/assets/fancybox/jquery.fancybox.min.css?ver=1.3.9" type="text/css" media="all">
+				<link rel="stylesheet" href="https://kheiriehemamali.ir/blog/wp-content/themes/soft-blog/assets/css/blocks.min.css?ver=6.0.2" type="text/css" media="all">
+                <script type="text/javascript" src="https://kheiriehemamali.ir/blog/wp-includes/js/jquery/jquery.min.js?ver=3.6.0" id="jquery-core-js"></script>
+                <script type="text/javascript" src="https://kheiriehemamali.ir/blog/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.3.2" id="jquery-migrate-js"></script>
+                <script type="text/javascript" id="ari-fancybox-js-extra">
+                   /* <![CDATA[ */
+                   var ARI_FANCYBOX = {
+                      "lightbox": {
+                         "backFocus": false,
+                         "trapFocus": false,
+                         "thumbs": {
+                            "hideOnClose": false
+                         },
+                         "touch": {
+                            "vertical": true,
+                            "momentum": true
+                         },
+                         "buttons": ["slideShow", "fullScreen", "thumbs", "close"],
+                         "lang": "custom",
+                         "i18n": {
+                            "custom": {
+                               "PREV": "Previous",
+                               "NEXT": "Next",
+                               "PLAY_START": "Start slideshow (P)",
+                               "PLAY_STOP": "Stop slideshow (P)",
+                               "FULL_SCREEN": "Full screen (F)",
+                               "THUMBS": "Thumbnails (G)",
+                               "CLOSE": "Close (Esc)",
+                               "ERROR": "The requested content cannot be loaded. <br\/> Please try again later."
+                            }
+                         }
+                      },
+                      "convert": {
+                         "images": {
+                            "convert": true,
+                            "post_grouping": true,
+                            "convertNameSmart": true
+                         }
+                      },
+                      "viewers": {
+                         "pdfjs": {
+                            "url": "https:\/\/kheiriehemamali.ir\/blog\/wp-content\/plugins\/ari-fancy-lightbox\/assets\/pdfjs\/web\/viewer.html"
+                         }
+                      }
+                   };
+                   /* ]]> */
+                </script>
+                <script type="text/javascript" src="https://kheiriehemamali.ir/blog/wp-content/plugins/ari-fancy-lightbox/assets/fancybox/jquery.fancybox.min.js?ver=1.3.9" id="ari-fancybox-js"></script>
+             ' . "<link rel='stylesheet' href=".get_stylesheet_uri().">"
+            ]
+		);
             $this->load->view('pwaui/postshow', ['url' => $_GET['url']]);
             $this->load->view('pwaui/App_Footer');
         }
@@ -42,7 +96,8 @@ class App extends CI_Controller
                 'project_data' => $project_data,
             );
             $this->load->view('pwaui/App_Header',[
-                'head' => '<link rel="stylesheet" id="ari-fancybox-css" href="https://kheiriehemamali.ir/blog/wp-content/plugins/ari-fancy-lightbox/assets/fancybox/jquery.fancybox.min.css?ver=1.3.9" type="text/css" media="all">
+                'head' => '
+				<link rel="stylesheet" id="ari-fancybox-css" href="https://kheiriehemamali.ir/blog/wp-content/plugins/ari-fancy-lightbox/assets/fancybox/jquery.fancybox.min.css?ver=1.3.9" type="text/css" media="all">
                 <script type="text/javascript" src="https://kheiriehemamali.ir/blog/wp-includes/js/jquery/jquery.min.js?ver=3.6.0" id="jquery-core-js"></script>
                 <script type="text/javascript" src="https://kheiriehemamali.ir/blog/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.3.2" id="jquery-migrate-js"></script>
                 <script type="text/javascript" id="ari-fancybox-js-extra">
