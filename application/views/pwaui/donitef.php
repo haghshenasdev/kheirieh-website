@@ -7,7 +7,7 @@
         </div>
 
         <div class="col-lg-6 col-md-8 mx-auto ThemeStyle p-4 text-light animated bounceInUp">
-            <h4 class="text-center">پرداخت جهت <?php echo $type_data[0]->title ?></h4>
+		<script>document.getElementById('application_title').innerHTML = "نیکوکاری و پرداخت";</script>
             <?php
             echo validation_errors('<div class="alert alert-danger alert-dismissible" role="alert">', '<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>');
             echo form_open("App/pay/" . $type_data[0]->type_name, array('id' => 'my-form'));

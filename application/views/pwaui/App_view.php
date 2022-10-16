@@ -107,7 +107,7 @@
 
  			<!-- navication -->
  			<div class="row text-center p-3 text-light">
- 				<a href="<?= base_url('index.php/App/sandoogh') ?>" class="col-3 text-light p-0">
+ 				<a href="<?= base_url('index.php/App/about') ?>" class="col-3 text-light p-0">
  					<div class="p-1">
  						<div class="ThemeStyle w-100 p-2" style="height: 110px;">
  							<svg class="m-auto mt-3" xmlns="http://www.w3.org/2000/svg" width="40px" fill="currentColor" class="bi bi-info-circle-fill" viewBox="0 0 16 16">
@@ -119,7 +119,7 @@
 
  					</div>
  				</a>
- 				<a href="<?= base_url() ?>index.php/App/openDonatePage" class="col-3 text-light p-0">
+ 				<a href="<?= base_url() ?>index.php/App/news" class="col-3 text-light p-0">
  					<div class="p-1">
  						<div class="ThemeStyle w-100 p-2" style="height: 110px;">
  							<svg class="m-auto mt-3" xmlns="http://www.w3.org/2000/svg" width="40px" fill="currentColor" class="bi bi-newspaper" viewBox="0 0 16 16">
@@ -130,7 +130,7 @@
  						</div>
  					</div>
  				</a>
- 				<a href="<?= base_url() ?>index.php/App/openprojects" class="col-3 text-light p-0">
+ 				<a href="<?= base_url() ?>index.php/App/shop" class="col-3 text-light p-0">
  					<div class="p-1">
  						<div class="ThemeStyle  w-100 p-2" style="height: 110px;">
  							<svg class="m-auto mt-3" xmlns="http://www.w3.org/2000/svg" width="40px" fill="currentColor" class="bi bi-cart-fill" viewBox="0 0 16 16">
@@ -141,7 +141,7 @@
  					</div>
  				</a>
 
- 				<a href="<?= base_url() ?>index.php/App/openprojects" class="col-3 text-light p-0">
+ 				<a href="<?= base_url() ?>index.php/App/message" class="col-3 text-light p-0">
  					<div class="p-1">
  						<div class="ThemeStyle  w-100 p-2" style="height: 110px;">
  							<svg class="m-auto mt-3" xmlns="http://www.w3.org/2000/svg" width="40px" fill="currentColor" class="bi bi-chat-right-dots-fill" viewBox="0 0 16 16">

@@ -1,7 +1,7 @@
-<div class="container px-4 py-4" id="Omrany">
-    <h2 class="pb-2 border-bottom font-sans">پروژه های عمرانی خیریه</h2>
+<div class="container px-4" id="Omrany">
+<script>document.getElementById('application_title').innerHTML = "پروژه های عمرانی خیریه";</script>
 
-    <div class="row row-cols-1 row-cols-lg-3 align-items-center g-4 py-5 text-center text-light">
+    <div class="row row-cols-1 row-cols-lg-3 align-items-center g-4 py-2 text-center text-light">
 
       <?php
 

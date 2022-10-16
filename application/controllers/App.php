@@ -85,6 +85,31 @@ class App extends CI_Controller
         }
     }
 
+	public function about(){
+		$this->load->helper("url");
+		$this->load->view('pwaui/App_Header');
+        $this->load->view('pwaui/pages/about');
+        $this->load->view('pwaui/App_Footer');
+	}
+	public function news(){
+		$this->load->helper("url");
+		$this->load->view('pwaui/App_Header');
+        $this->load->view('pwaui/pages/news');
+        $this->load->view('pwaui/App_Footer');
+	}
+	public function shop(){
+		$this->load->helper("url");
+		$this->load->view('pwaui/App_Header');
+        $this->load->view('pwaui/pages/shop');
+        $this->load->view('pwaui/App_Footer');
+	}
+	public function message(){
+		$this->load->helper("url");
+		$this->load->view('pwaui/App_Header');
+        $this->load->view('pwaui/pages/message');
+        $this->load->view('pwaui/App_Footer');
+	}
+
     public function projectshow($p_name)
     {
         $this->load->model('db_model');

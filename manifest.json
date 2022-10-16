@@ -49,17 +49,5 @@
             ]
         }
     ],
-    "description": "Weather forecast information",
-    "screenshots": [
-        {
-            "src": "/images/screenshot1.png",
-            "type": "image/png",
-            "sizes": "540x720"
-        },
-        {
-            "src": "/images/screenshot2.jpg",
-            "type": "image/jpg",
-            "sizes": "540x720"
-        }
-    ]
+    "description": "نرم افزار کمک به نیازمندان"
 }

@@ -1,21 +1,28 @@
- <div style="height: 50px;"></div>
  <?php //file_get_contents($url) 
 	?>
 
  <?php
-	// Include Wordpress 
 
-	
 	define('WP_USE_THEMES', false);
 	$postid = url_to_postid($url);
 	if ($postid != 0) {
 		$pot = get_post($postid);	
+		$thum_url = get_the_post_thumbnail_url($pot->ID);
 	?>
+	<div class="row text-center mb-3" style="font-size: 15px;">
+		<div class="col">تاریخ : <?= $pot->post_date ?></div>
+		<div class="col">نویسنده : <?= get_user_by('id',$pot->post_author)->display_name  ?></div>
+	</div>
+	<?php if($thum_url != false): ?>
+	<img class="image ThemeStyle-border my-4" src="<?= $thum_url ?>" alt="">
+	<?php endif; ?>
+	<div class="card p-3" style="border-radius: 40px !important;">
+		<?= $pot->post_content; ?>
+	</div>
  	<script>
  		document.getElementById('application_title').innerHTML = "<?= $pot->post_title ?>";
  	</script>
- <?php
-		echo $pot->post_content;
+ <?php	
 	} else {
 		echo '404';
 	}
