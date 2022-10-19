@@ -87,8 +87,10 @@ class App extends CI_Controller
 
 	public function about(){
 		$this->load->helper("url");
+		$this->load->model('db_model');
+
 		$this->load->view('pwaui/App_Header');
-        $this->load->view('pwaui/pages/about');
+        $this->load->view('pwaui/pages/about',['setting' => $this->db_model->get_setting()]);
         $this->load->view('pwaui/App_Footer');
 	}
 	public function news(){

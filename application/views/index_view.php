@@ -70,11 +70,9 @@
       </div>
     </div>
     <div class="col-lg-6 text-center text-light text-center">
-
       <a href="https://www.google.com/maps/place/%D8%AE%DB%8C%D8%B1%DB%8C%D9%87+%D8%A7%D9%85%D8%A7%D9%85+%D8%B9%D9%84%DB%8C+%D8%A7%D8%A8%D9%86+%D8%A7%D8%A8%DB%8C%D8%B7%D8%A7%D9%84%D8%A8+(%D8%B9)+%DA%AF%D8%B1%DA%AF%D8%A7%D8%A8%E2%80%AD/@32.8647729,51.5985803,18.62z/data=!4m5!3m4!1s0x0:0x377368e33047b8dc!8m2!3d32.8648579!4d51.5980984?hl=fa" target="_blank">
         <div class="map ThemeStyle-border"></div>
       </a>
-
     </div>
   </div>
 </div>
