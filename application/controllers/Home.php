@@ -20,7 +20,7 @@ class home extends CI_Controller {
 	 */
 	public function index()
 	{
-		$this->load->helper(array('url'));
+		// $this->load->helper(array('url'));
 		$this->load->model('db_model');
 		$this->load->library(array('show_menu','jdf','owghat'));
 		

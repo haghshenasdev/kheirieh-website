@@ -6,7 +6,7 @@ class form_controler extends CI_Controller
     {
         $this->load->model('db_model');
         $type_data = $this->db_model->get_pay_type($type_name);
-        $this->load->helper(array('form', 'url'));
+        $this->load->helper(array('form'));
         $this->load->library(array('form_validation', 'show_menu', 'db_type', 'jdf'));
 
         $all_type = null;
@@ -85,7 +85,7 @@ class form_controler extends CI_Controller
     public function verifaypay()
     {
         $this->load->model('db_model');
-        $this->load->helper('url');
+        // $this->load->helper('url');
         $this->load->library(['faktoor_image', 'show_menu']);
         $this->load->library('zarinpal', ['merchant_id' => $this->config->item('MID_Pay')]);
         $menu = $this->db_model->get_menus();

@@ -5,7 +5,6 @@ class Project_C extends CI_Controller
     public function index($p_name)
     {
         $this->load->model('db_model');
-        $this->load->helper('url');
         $this->load->library(array('show_menu','read_image_folder'));
         $project_data = $this->db_model->get_projects_data($p_name);
         if (count($project_data) != 0) {
