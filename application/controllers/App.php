@@ -10,12 +10,12 @@ class App extends CI_Controller
     public function __construct()
     {
         parent::__construct();
+		$this->load->helper("url");
+		$this->load->model('db_model');
     }
 
     public function index()
     {
-        $this->load->helper("url");
-        $this->load->model('db_model');
         $this->load->view('pwaui/App_view',[
             'hadis_random_sadagheh' => $this->db_model->get_hadis('صدقه'),
             'slideshows' => $this->db_model->get_slide_show()
@@ -24,7 +24,7 @@ class App extends CI_Controller
     public function openpost()
     {
         if (isset($_GET['url']) || !isNull($_GET['url'])) {
-            $this->load->helper("url");
+             
 			require('././blog/wp-blog-header.php');
             $this->load->view('pwaui/App_Header',
 			[
@@ -86,27 +86,27 @@ class App extends CI_Controller
     }
 
 	public function about(){
-		$this->load->helper("url");
-		$this->load->model('db_model');
+		 
+		  
 
 		$this->load->view('pwaui/App_Header');
         $this->load->view('pwaui/pages/about',['setting' => $this->db_model->get_setting()]);
         $this->load->view('pwaui/App_Footer');
 	}
 	public function news(){
-		$this->load->helper("url");
+		 
 		$this->load->view('pwaui/App_Header');
         $this->load->view('pwaui/pages/news');
         $this->load->view('pwaui/App_Footer');
 	}
 	public function shop(){
-		$this->load->helper("url");
+		 
 		$this->load->view('pwaui/App_Header');
         $this->load->view('pwaui/pages/shop');
         $this->load->view('pwaui/App_Footer');
 	}
 	public function message(){
-		$this->load->helper("url");
+		 
 		$this->load->view('pwaui/App_Header');
         $this->load->view('pwaui/pages/message');
         $this->load->view('pwaui/App_Footer');
@@ -114,7 +114,7 @@ class App extends CI_Controller
 
     public function projectshow($p_name)
     {
-        $this->load->model('db_model');
+          
         $this->load->helper('url');
         $this->load->library(array('read_image_folder'));
         $project_data = $this->db_model->get_projects_data($p_name);
@@ -183,8 +183,8 @@ class App extends CI_Controller
 
     public function openprojects()
     {
-        $this->load->helper("url");
-        $this->load->model('db_model');
+         
+          
         $data = array('page_data' => $this->db_model->get_projects());
         $this->load->view('pwaui/App_Header');
         $this->load->view('pwaui/projects', $data);
@@ -193,16 +193,16 @@ class App extends CI_Controller
 
     public function openDonatePage()
     {
-        $this->load->helper("url");
+         
 
         $this->pay("komak");
     }
 
     public function pay($type_name, $ezafe = null)
     {
-        $this->load->model('db_model');
+          
         $type_data = $this->db_model->get_pay_type($type_name);
-        $this->load->helper(array('form', 'url'));
+        $this->load->helper(array('form'));
         $this->load->library(array('form_validation', 'show_menu', 'db_type', 'jdf'));
 
         $all_type = null;
@@ -282,9 +282,8 @@ class App extends CI_Controller
 
     public function verifaypay()
     {
-        $this->load->model('db_model');
-        $this->load->helper('url');
-        $this->load->library(['faktoor_image', 'show_menu']);
+          
+		$this->load->library(['faktoor_image', 'show_menu']);
         $this->load->library('zarinpal', ['merchant_id' => $this->config->item('MID_Pay')]);
         $menu = $this->db_model->get_menus();
 
@@ -335,7 +334,7 @@ class App extends CI_Controller
     //vlidate method
     public function valid_type($val)
     {
-        $this->load->model('db_model');
+          
         $type_data = $this->db_model->get_pay_type_id($val);
         if (count($type_data) == 0) {
             return false;
@@ -358,8 +357,8 @@ class App extends CI_Controller
 
     public function sandoogh()
     {
-        $this->load->model('db_model');
-        $this->load->helper(array('form', 'url', 'cookie'));
+          
+        $this->load->helper(array('form', 'cookie'));
         $this->load->library(array('form_validation', 'jdf'));
 
         // form validation
