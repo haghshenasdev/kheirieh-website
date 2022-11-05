@@ -28,7 +28,7 @@
 
 			<div class="mb-3">
 				<label for="password" class="col-form-label">
-					حساب کاربری ندارید ؟ <a href="<?= base_url('index.php/users/registration') ?>">ثبت نام</a>
+					حساب کاربری ندارید ؟ <a href="<?= $this->userssystem->route_registration ?>">ثبت نام</a>
 				</label>
 			</div>
 
@@ -40,10 +40,9 @@
 			</script> -->
 
 
-			<div class="text-center">
-				<!-- <input name="loginSubmit" class="btn btn-light mt-4 ThemeStyle-border px-5 g-recaptcha" data-sitekey="<?php echo $this->config->item('google_key') ?>" onclick="this.innerHTML = '<span class=\'spinner-border spinner-border-sm text-dark\' role=\'status\'></span> درحال ارسال...'" data-callback='onSubmit' data-action='submit' type="submit" value="ورود"> -->
-				<input type="submit" name="loginSubmit" value="ورود" class="btn btn-light mt-4 ThemeStyle-border px-5 g-recaptcha">
-				<button class="btn btn-outline-light mt-4 ThemeStyle-border" type="button" onclick="history.back()">بازگشت</button>
+			<div class="d-grid gap-2 mt-3">
+				<input type="submit" name="loginSubmit" value="ورود" class="btn btn-light ThemeStyle-border px-5 g-recaptcha">
+				<button class="btn btn-outline-light ThemeStyle-border" type="button" onclick="history.back()">بازگشت</button>
 			</div>
 
 			<?php echo form_close(); ?>

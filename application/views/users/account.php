@@ -44,6 +44,10 @@
 			</div>
 			<?php echo form_error('old_password', '<div class="alert alert-danger" role="alert">', '</div>'); ?>
 
+			<div class="mt-3">
+				<label class="col-form-label">فقط در صورت نیاز به تغییر رمز عبور قسمت های زیر را پر کنید:</label>
+			</div>
+
 			<div class="mb-3">
 				<label for="password" class="col-form-label">رمز عبور :</label>
 				<input type="password" class="form-control" id="password" name="password">
@@ -56,12 +60,6 @@
 			</div>
 			<?php echo form_error('conf_password', '<div class="alert alert-danger" role="alert">', '</div>'); ?>
 
-			<div class="mb-3">
-				<label for="password" class="col-form-label">
-					حساب کاربری دارید ؟ <a href="<?= base_url('index.php/users/registration') ?>">وارد شوید</a>
-				</label>
-			</div>
-
 			<!-- <script src="https://www.google.com/recaptcha/api.js"></script>
 			<script>
 				function onSubmit(token) {
@@ -69,11 +67,10 @@
 				}
 			</script> -->
 
-
-			<div class="text-center">
-				<!-- <input name="loginSubmit" class="btn btn-light mt-4 ThemeStyle-border px-5 g-recaptcha" data-sitekey="<?php echo $this->config->item('google_key') ?>" onclick="this.innerHTML = '<span class=\'spinner-border spinner-border-sm text-dark\' role=\'status\'></span> درحال ارسال...'" data-callback='onSubmit' data-action='submit' type="submit" value="ورود"> -->
-				<input type="submit" name="updateSubmit" value="بروزرسانی" class="btn btn-light mt-4 ThemeStyle-border px-5 g-recaptcha">
-				<button class="btn btn-outline-light mt-4 ThemeStyle-border" type="button" onclick="history.back()">بازگشت</button>
+			<div class="d-grid gap-2 mt-5">
+				<input type="submit" name="updateSubmit" value="ذخیره تغییرات" class="btn btn-light ThemeStyle-border px-5 g-recaptcha">
+				<a class="btn btn-danger ThemeStyle-border" href="<?= $this->userssystem->route_logout ?>">خروج از حساب کاربری</a>
+				<button class="btn btn-outline-light ThemeStyle-border" type="button" onclick="history.back()">بازگشت</button>
 			</div>
 
 			<?php echo form_close(); ?>

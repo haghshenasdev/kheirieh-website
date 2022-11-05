@@ -13,7 +13,7 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>نرم افزار خیریه امام علی ابن ابیطالب (ع) گرگاب</title>
+	<title><?= isset($title) ? $title : 'نرم افزار خیریه امام علی ابن ابیطالب (ع) گرگاب'; ?></title>
 
 	<link rel="stylesheet" href="<?= base_url('css/style.css'); ?>">
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.rtl.min.css" integrity="sha384-+4j30LffJ4tgIMrq9CwHvn0NjEvmuDCOfk6Rpg2xg7zgOxWWtLtozDEEVvBPgHqE" crossorigin="anonymous">
@@ -36,7 +36,7 @@
 					</div>
 					<div class="col">
 						<div id="application_title_div" class="d-flex text-light">
-							<p id="application_title" class="navbar-text text-light mb-0">خیریه امام علی(ع) گرگاب</p>
+							<p id="application_title" class="navbar-text text-light mb-0"><?= isset($short_title) ? $short_title : 'خیریه امام علی(ع) گرگاب'; ?></p>
 						</div>
 					</div>
 				</div>
