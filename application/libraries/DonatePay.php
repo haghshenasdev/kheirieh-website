@@ -3,11 +3,13 @@
 class DonatePay
 {
 	private $ci;
+	public $MainRoute;
 
 	public function __construct($params = [])
 	{
 		$this->ci = &get_instance();
 		$this->ci->load->model('db_model');
+		$this->MainRoute = $params[0];
 	}
 
 	public function pay_instance($type_name, $formView, $ezafe = null)
@@ -70,7 +72,7 @@ class DonatePay
 				// init zarinpal
 				$this->ci->load->library('zarinpal', ['merchant_id' => $this->ci->config->item('MID_Pay')]);
 				$this->ci->zarinpal->sandbox();
-				if ($this->ci->zarinpal->request($amount, $type_data->title, base_url('index.php/App/verifaypay'))) {
+				if ($this->ci->zarinpal->request($amount, $type_data->title, base_url('index.php/'. $this->MainRoute .'/verifaypay'))) {
 					$authority = $this->ci->zarinpal->get_authority();
 					$this->ci->db_model->insert_pay([
 						'userid' => $checkLogin_userdata['id'],
@@ -93,7 +95,7 @@ class DonatePay
 		$formView($data);
 	}
 
-	public function verifaypay()
+	public function verifaypay_instance($view)
 	{
 
 		$this->ci->load->library(['faktoor_image', 'show_menu']);
@@ -106,44 +108,48 @@ class DonatePay
 		//     // payment canceled by user
 		// }
 
-		//$this->ci->zarinpal->verify($res[0]->amount, $authority)
-		if ($status === 'OK' && $authority !== NULL) {
-			$ref_id = $this->ci->zarinpal->get_ref_id();
+		$data = [];
+
+		$authorityFormated = $this->ci->db_model->get_format_authority($authority);
+		$res = $this->ci->db_model->getpay($authorityFormated);
+//&&
+// $this->ci->zarinpal->verify($res[0]->amount, $authority)
+		if (
+			$status === 'OK' &&
+			$authority !== NULL
+		) {
+			//$ref_id = $this->ci->zarinpal->get_ref_id();
 			// payment succeeded, do database stuff  
-			$authority = $this->ci->db_model->get_format_authority($authority);
-			$res = $this->ci->db_model->getpay($authority);
-			$this->ci->db_model->settruepardakht($authority);
+
+			$this->ci->db_model->settruepardakht($authorityFormated);
 			$type_title = $this->ci->db_model->get_pay_typename($res[0]->type);
 
 			//sucess , create faktoor
-			$faktoor = $this->ci->faktoor_image->create_factoor_image(
-				$res[0]->name,
-				$res[0]->amount,
-				$type_title,
-				$res[0]->date,
-				$authority
-			);
+			// $faktoor = $this->ci->faktoor_image->create_factoor_image(
+			// 	$res[0]->name,
+			// 	$res[0]->amount,
+			// 	$type_title,
+			// 	$res[0]->date,
+			// 	$authorityFormated
+			// );
 
-			$this->ci->load->view('pwaui/App_Header');
-			$this->ci->load->view('formsuccess', array('faktoor' => $faktoor, 'setting' => $this->ci->db_model->get_setting()));
-			$this->ci->load->view('pwaui/App_Footer');
+			$faktoorData = [
+				'name' => $res[0]->name,
+				'amount' => $res[0]->amount,
+				'typeTitle' => $type_title,
+				'date' => $res[0]->date,
+				'payId' => $authorityFormated
+			];
+			//show success form
+			$data['faktoorData'] = $faktoorData;
+			$data['success'] = true;
 		} else {
-			$error = $this->ci->zarinpal->get_error();
 			// payment failed
-			$this->ci->load->view('pwaui/App_Header');
-			$this->ci->load->view('formFailed', [
-				'error' => $error,
-				'setting' => $this->ci->db_model->get_setting(),
-			]);
-			$this->ci->load->view('pwaui/App_Footer');
+			$data['error'] = $this->ci->zarinpal->get_error();
+			$data['success'] = false;
 		}
-	}
 
-	private function setco($name, $phone, $email)
-	{
-		set_cookie('name', $name, 365 * 24 * 60);
-		set_cookie('phone', $phone, 365 * 24 * 60);
-		set_cookie('email', $email, 365 * 24 * 60);
+		$view($data);
 	}
 
 	private function gneriate_typedata($type_data)

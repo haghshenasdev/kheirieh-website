@@ -12,7 +12,7 @@
 			if (!empty($error_msg)) {
 				echo '<div class="alert alert-danger alert-dismissible" role="alert">' . $error_msg . '<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>';
 			}
-			echo form_open("App/pay/" . $type_data->type_name, array('id' => 'my-form'));
+			echo form_open($this->donatepay->MainRoute . "/pay/" . $type_data->type_name, array('id' => 'my-form'));
 			if (is_array($all_type) || $type_data->type_name == 'komak') :
 			?>
 				<div class="mb-3">

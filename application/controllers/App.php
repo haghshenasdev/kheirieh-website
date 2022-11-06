@@ -199,7 +199,7 @@ class App extends CI_Controller
 
 	public function pay($type_name, $ezafe = null)
 	{
-		$this->load->library('donatepay');
+		$this->load->library('donatepay',['app']);
 		$this->donatepay->pay_instance(
 			$type_name,
 			function ($data) {
@@ -210,13 +210,28 @@ class App extends CI_Controller
 						'short_title' => 'پرداخت و نیکو کاری',
 					]
 				);
-				$this->load->view('pwaui/donitef', $data);
+				$this->load->view('forms/donitef', $data);
 				$this->load->view('pwaui/App_Footer');
 			}
 		);
 	}
 	public function verifaypay()
 	{
+		$this->load->library('donatepay',['app']);
+		$this->donatepay->verifaypay_instance(
+			function ($data) {
+				$this->load->view(
+					'pwaui/App_Header',
+					[
+						'title' => '',
+						'short_title' => $data['success'] ? 'پرداخت موفق' : 'پرداخت ناموفق',
+						'customBackBtnclic' => "history.go(-2);",
+					]
+				);
+				$this->load->view('forms/pay_valid_show',$data);
+				$this->load->view('pwaui/App_Footer');
+			}
+		);
 	}
 
 	public function account()
@@ -241,7 +256,6 @@ class App extends CI_Controller
 	public function login()
 	{
 		$data = $this->userssystem->login();
-
 		// Load view 
 		$this->load->view('pwaui/App_Header', [
 			'title' => 'ورود',
