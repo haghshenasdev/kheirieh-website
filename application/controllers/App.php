@@ -234,6 +234,29 @@ class App extends CI_Controller
 		);
 	}
 
+	//vlidate method
+	public function valid_type($val)
+	{
+
+		$type_data = $this->db_model->get_pay_type_id($val);
+		if (count($type_data) == 0) {
+			return false;
+		} else {
+			return true;
+		}
+	}
+	public function google_validate_captcha()
+	{
+		$google_captcha = $this->input->post('g-recaptcha-response');
+		$google_response = file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=" . $this->config->item('google_secret') . "&response=" . $google_captcha . "&remoteip=" . $_SERVER['REMOTE_ADDR']);
+		if ($google_response . 'success' == false) {
+			return FALSE;
+		} else {
+			return TRUE;
+		}
+	}
+	//vlidate method end
+
 	public function account()
 	{
 		$data = array();
@@ -282,30 +305,6 @@ class App extends CI_Controller
 	{
 		$this->userssystem->logout();
 	}
-
-	//vlidate method
-	public function valid_type($val)
-	{
-
-		$type_data = $this->db_model->get_pay_type_id($val);
-		if (count($type_data) == 0) {
-			return false;
-		} else {
-			return true;
-		}
-	}
-	public function google_validate_captcha()
-	{
-		$google_captcha = $this->input->post('g-recaptcha-response');
-		$google_response = file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=" . $this->config->item('google_secret') . "&response=" . $google_captcha . "&remoteip=" . $_SERVER['REMOTE_ADDR']);
-		if ($google_response . 'success' == false) {
-			return FALSE;
-		} else {
-			return TRUE;
-		}
-	}
-	//vlidate method end
-
 
 	public function sandoogh()
 	{

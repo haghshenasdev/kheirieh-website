@@ -99,7 +99,7 @@
 			</script>
 
 			<div class="d-grid gap-2 mt-3">
-				<button class="btn btn-light mt-3 ThemeStyle-border px-5 g-recaptcha" data-sitekey="<?php echo $this->config->item('google_key') ?>" onclick="this.innerHTML = '<span class=\'spinner-border spinner-border-sm text-dark\' role=\'status\'></span> درحال ارسال...'" data-callback='onSubmit' data-action='submit' type="submit"> پرداخت</button>
+				<button class="btn btn-light mt-3 ThemeStyle-border px-5 g-recaptcha" data-sitekey="<?php echo $this->config->item('google_key') ?>" onclick="this.innerHTML = '<span class=\'spinner-border spinner-border-sm text-dark\' role=\'status\'></span> درحال انتقال به درگاه پرداخت...'" data-callback='onSubmit' data-action='submit' type="submit"> پرداخت</button>
 				<button class="btn btn-outline-light ThemeStyle-border" type="button" onclick="history.back()">بازگشت به صفحه اصلی</button>
 			</div>
 

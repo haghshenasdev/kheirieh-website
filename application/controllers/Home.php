@@ -26,12 +26,17 @@ class home extends CI_Controller {
 		
 		$data = array(
 			'page_data' => $this->db_model->get_projects(),
-			'menus' => $this->db_model->get_menus(),
 			'hadis_random' => $this->db_model->get_hadis(),
 			'hadis_random_sadagheh' => $this->db_model->get_hadis('صدقه'),
-			'setting' => $this->db_model->get_setting()
+			'setting' => $this->db_model->get_setting(),
 		);
-		$this->load->view('index_view',$data);
+		$this->load->view('layout/myheader',[
+			'customHeaderMenu' => 'menus/homeMenu.php',
+			'menus' => $this->db_model->get_menus(),
+			'tags' => 'خیریه , امام علی ابن ابیطالب علیه السلام , شهر گرگاب , کمک به نیازمندان , پروژه خیر, بیت العباس , مسکن جوانان , دانلود نرم افزار , مددجو , مددکار, مرکز جامع سلامت , اورژانس 115 , مدرسه امام علی ابن ابیطالب , امور خیر , وقف , صدقه آنلاین',
+			'description' => 'وب سایت خیریه امام علی ابن ابیطالب شهر گرگاب ، دانلود نرم افزار های خیریه ، کمک کردن ، درباره خیریه',
+		]);
+		$this->load->view('home',$data);
 	}
 	// public function create_table(){
 	// 	$this->load->model('db_model');
