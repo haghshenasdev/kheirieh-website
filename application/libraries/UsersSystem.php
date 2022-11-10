@@ -33,7 +33,7 @@ class UsersSystem
 		$this->route_logout  = $this->baseurl . 'logout';
 
 		// User login status 
-		$this->ci->isUserLoggedIn = $this->ci->session->userdata('isUserLoggedIn');
+		$this->isUserLoggedIn = $this->ci->session->userdata('isUserLoggedIn');
 	}
 
 	public function account()
@@ -104,6 +104,11 @@ class UsersSystem
 	public function login()
 	{
 		$data = array();
+
+		//redirect logined user to account
+		if ($this->isUserLoggedIn) {
+			header("location: $this->route_account");
+		}
 
 		// Get messages from the session 
 		if ($this->ci->session->userdata('success_msg')) {
