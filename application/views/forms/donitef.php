@@ -21,7 +21,7 @@
 						<?php foreach ($all_type as $row) : ?>
 
 							<?php if ($row->is_active == 1 && is_null($row->sub)) : ?>
-								<option selected value="<?php echo $row->id ?>">
+								<option <?php if($row->defult == 1) echo 'selected' ?> value="<?php echo $row->id ?>">
 									<?php echo $row->title ?>
 								</option>
 							<?php endif; ?>
