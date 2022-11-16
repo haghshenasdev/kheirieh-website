@@ -29,6 +29,15 @@
 
 html {
 	scroll-behavior: smooth;
+	--theme-dark-color : #1d3557;
+	--theme-light-color : #457b9d;
+	--theme-lightO-color : #457b9d13;
+	--theme-shadow : 0px 0px 30px #1d355780;
+
+	--theme-gradient : linear-gradient(45deg, var(--theme-light-color), var(--theme-dark-color));
+	--theme-gradient-filip : linear-gradient(-45deg, var(--theme-light-color), var(--theme-dark-color));
+	--theme-gradient-opacity : linear-gradient(45deg, var(--theme-lightO-color), var(--theme-dark-color));
+	--theme-gradient-filip-opacity : linear-gradient(-45deg, var(--theme-lightO-color), var(--theme-dark-color));
 }
 
 body {
@@ -59,12 +68,12 @@ body {
 }
 
 .header-image-res {
-	background-image: linear-gradient(-45deg, #457b9d13, #1d3557), url('images/bg-header-res.jpg');
+	background-image: var(--theme-gradient-filip-opacity), url('images/bg-header-res.jpg');
 	background-position-y: bottom;
 }
 
 .header-image {
-	background-image: linear-gradient(45deg, #457b9d13, #1d3557), url('images/bg-header.jpg');
+	background-image: var(--theme-gradient-opacity), url('images/bg-header.jpg');
 }
 
 .my-h1 {
@@ -112,7 +121,7 @@ p {
 }
 
 .My-nav a:hover {
-	border-bottom: 5px solid #457b9d;
+	border-bottom: 5px solid var(--theme-light-color);
 	border-radius: 5px;
 }
 
@@ -139,33 +148,33 @@ p {
 }
 
 #download-app {
-	background-image: linear-gradient(45deg, #457b9d13, #1d3557), url('images/bg-kheirieh.jpg');
+	background-image: var(--theme-gradient-opacity), url('images/bg-kheirieh.jpg');
 	background-repeat: no-repeat;
 	background-size: cover;
 
 }
 
 #donite {
-	background-image: linear-gradient(45deg, #457b9d13, #1d3557), url('images/bg-kheirieh.jpg');
+	background-image: var(--theme-gradient-opacity), url('images/bg-kheirieh.jpg');
 	background-repeat: no-repeat;
 	background-size: cover;
 }
 
 .title-color {
-	color: #457b9d;
+	color: var(--theme-light-color);
 }
 
 .ThemeStyle {
-	background-image: linear-gradient(45deg, #457b9d, #1d3557);
+	background-image: var(--theme-gradient);
 	border-radius: 40px;
 }
 
 .ThemeStyle-gradient {
-	background-image: linear-gradient(45deg, #457b9d, #1d3557);
+	background-image: var(--theme-gradient);
 }
 
 .ThemeStyle-90 {
-	background-image: linear-gradient(90deg, #457b9d, #1d3557);
+	background-image: linear-gradient(90deg, var(--theme-light-color), var(--theme-dark-color));
 	border-radius: 40px;
 }
 
@@ -176,17 +185,17 @@ p {
 .ThemeStyle-button {
 	border-radius: 18px;
 
-	border: 10px solid #457b9d;
+	border: 10px solid var(--theme-light-color);
 
 
 }
 
 .ThemeStyleShadow {
-	box-shadow: 0px 0px 30px #1d355780;
+	box-shadow : var(--theme-shadow);
 }
 
 .ThemeStyleShadow-Hover:hover {
-	box-shadow: 0px 0px 30px #1d355780;
+	box-shadow : var(--theme-shadow);
 }
 
 .mynawmenu {
@@ -213,7 +222,7 @@ p {
 .left-elm {
 	border-top-left-radius: 0px;
 	border-bottom-left-radius: 0px;
-	background-image: linear-gradient(-45deg, #457b9d, #1d3557);
+	background-image: var(--theme-gradient-filip);
 	height: 200px;
 }
 
@@ -264,13 +273,13 @@ p {
 .scrollystyle::-webkit-scrollbar {
 	width: 5px;
 	height: 8px;
-	background-color: #3498db11;
+	background-color: var(--theme-dark-color);
 	border-radius: 20px;
 	visibility: hidden;
 }
 
 .scrollystyle::-webkit-scrollbar-thumb {
-	background-color: #1d3557a2;
+	background-color: var(--theme-dark-color);
 	border-radius: 20px;
 	visibility: hidden;
 }
@@ -316,7 +325,7 @@ p {
 	margin: -76px 0 0 -76px;
 	border: 16px solid #f3f3f3;
 	border-radius: 50%;
-	border-top: 16px solid #3498db;
+	border-top: 16px solid var(--theme-dark-color);
 	-webkit-animation: spin 2s linear infinite;
 	animation: spin 2s linear infinite;
 }
