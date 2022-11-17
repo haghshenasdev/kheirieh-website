@@ -136,16 +136,12 @@ class db_model extends CI_Model
 		return '110-' . substr($authority, -9);
 	}
 
-	public function insert_DSanDoogh($name, $phone, $email, $adres, $description)
+	public function insert_DSanDoogh($data)
 	{
-
-		$data = array(
-			'name' => $name,
-			'phone' => $phone,
-			'email' => $email,
-			'adres' => $adres,
-			'description' => $description
-		);
 		return $this->db->insert('sandooghD', $data);
+	}
+	public function getSandooghdtypes()
+	{
+		return $this->db->get('sandooghdtype')->result();
 	}
 }

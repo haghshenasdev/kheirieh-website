@@ -199,7 +199,7 @@ class App extends CI_Controller
 
 	public function pay($type_name, $ezafe = null)
 	{
-		$this->load->library('donatepay',['app']);
+		$this->load->library('donatepay', ['app']);
 		$this->donatepay->pay_instance(
 			$type_name,
 			function ($data) {
@@ -217,7 +217,7 @@ class App extends CI_Controller
 	}
 	public function verifaypay()
 	{
-		$this->load->library('donatepay',['app']);
+		$this->load->library('donatepay', ['app']);
 		$this->donatepay->verifaypay_instance(
 			function ($data) {
 				$this->load->view(
@@ -228,7 +228,7 @@ class App extends CI_Controller
 						'customBackBtnclic' => "history.go(-2);",
 					]
 				);
-				$this->load->view('forms/pay_valid_show',$data);
+				$this->load->view('forms/pay_valid_show', $data);
 				$this->load->view('pwaui/App_Footer');
 			}
 		);
@@ -309,37 +309,44 @@ class App extends CI_Controller
 	public function sandoogh()
 	{
 
+		if (!$this->isUserLoggedIn) redirect($this->userssystem->route_login);
+
 		$this->load->helper(array('form', 'cookie'));
 		$this->load->library(array('form_validation', 'jdf'));
 
+		$userdata = $this->userssystem->get_logined_user_data();
+		$adresNull = ($userdata['adres'] == "" || $userdata['adres'] == null) ? true : false;
+
 		// form validation
-		$this->form_validation->set_rules('name', 'نام و نام خانوادگی', 'max_length[100]|required');
-		$this->form_validation->set_rules('adres', 'آدرس', 'max_length[400]|required');
-		$this->form_validation->set_rules('phone', 'تلفن', 'required|numeric|min_length[9]|regex_match[/^09[0-9]{9}$/]');
-		$this->form_validation->set_rules('email', 'ایمیل', 'valid_email');
+		if ($adresNull) $this->form_validation->set_rules('adres', 'آدرس', 'max_length[400]|required');
 
 		// capcha validation
 		$this->form_validation->set_rules('g-recaptcha-response', 'کپچا', 'callback_google_validate_captcha');
 		$this->form_validation->set_message('google_validate_captcha', 'لطفا کپچا را برسی کنید');
 
 		if ($this->form_validation->run() == FALSE) {
-			$this->load->view('pwaui/App_Header');
-			$this->load->view('pwaui/sandoogh/sandooghf');
+			$this->load->view('pwaui/App_Header', [
+				'short_title' => 'درخواست صندوق صدقات', 
+				'all_type' => $this->db_model->getSandooghdtypes()
+			]);
+			$this->load->view('pwaui/sandoogh/sandooghf', compact('adresNull'));
 			$this->load->view('pwaui/App_Footer');
 		} else {
-			$name = $this->input->post('name');
-			$phone = $this->input->post('phone');
-			$email = $this->input->post('email');
-			$adres = $this->input->post('adres');
-			$description = $this->input->post('description');
+			if ($adresNull) {
+				$this->load->model('user');
+				$this->user->update(
+					$userdata['id'],
+					['adres' => $this->input->post('adres')]
+				);
+			}
 
 			$this->load->view('pwaui/App_Header');
 			if ($this->db_model->insert_DSanDoogh(
-				$name,
-				$phone,
-				$email,
-				$adres,
-				$description,
+				[
+					'description' => $this->input->post('description'),
+					'type' => $this->input->post('type'),
+					'userid' => $userdata['id']
+				]
 			)) {
 				$this->load->view('pwaui/sandoogh/sandooghfSucsses');
 			} else {
