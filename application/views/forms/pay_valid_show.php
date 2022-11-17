@@ -12,13 +12,16 @@
 				<?php //$link = $this->faktoor_image->show_factoor_img_tag($faktoor); 
 				?>
 
-				<p class="text-center mt-3">مبلغ : <?= $faktoorData['amount'] ?></p>
+				<p class="text-center mt-3">مبلغ : <?= $faktoorData['amount'] ?> تومان</p>
 				<p class="text-center mt-3">شماره ثبت : <?= $faktoorData['payId'] ?></p>
 				<p class="text-center mt-3">زمان پرداخت : <?= $faktoorData['date'] ?></p>
 				<p class="text-center mt-3"> نام پرداخت کننده : <?= $faktoorData['name'] ?></p>
 
 				<div class="d-grid gap-2 mt-3">
-					<button class="btn btn-light mt-3 ThemeStyle-border px-5 g-recaptcha" onclick="this.innerHTML = '<span class=\'spinner-border spinner-border-sm text-dark\' role=\'status\'></span> درحال ارسال...'" data-callback='onSubmit' data-action='submit' type="submit"> دانلود و ذخیره فاکتور</button>
+					<form class="w-100" action="<?= base_url('index.php/faktoor/download') ?>" method="post">
+						<input type="hidden" name="sabtid" value="<?= $faktoorData['payId'] ?>">
+						<button id="dlbtn" class="w-100 btn btn-light mt-3 ThemeStyle-border px-5 g-recaptcha" data-callback='onSubmit' data-action='submit' type="submit"> دانلود و ذخیره فاکتور</button>
+					</form>
 					<a class="btn btn-outline-light ThemeStyle-border" type="button" onclick="history.go(-3)">بازگشت به صفحه اصلی</a>
 				</div>
 			</div>

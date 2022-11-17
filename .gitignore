@@ -8,6 +8,10 @@ application/logs/*
 
 !application/*/.htaccess
 
+## my ignors
+faktoors
+##----------
+
 composer.lock
 tests/mocks/database/ci_test.sqlite
 

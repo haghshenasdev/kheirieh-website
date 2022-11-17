@@ -39,6 +39,7 @@ class UsersSystem
 	public function account()
 	{
 		$data = $userData = array();
+		$data['user'] = $this->get_logined_user_data();
 
 		// If registration request is submitted 
 		if ($this->ci->input->post('updateSubmit')) {
@@ -53,7 +54,6 @@ class UsersSystem
 
 			$this->ci->form_validation->set_rules('name', 'نام و نام خانوادگی', 'required');
 			$this->ci->form_validation->set_rules('adres', 'آدرس', 'min_length[10]|max_length[250]');
-			$this->ci->form_validation->set_rules('old_password', 'رمز عبور', 'required');
 
 			$userData = array(
 				'name' => strip_tags($this->ci->input->post('name')),
@@ -63,22 +63,23 @@ class UsersSystem
 			);
 			if ($this->ci->input->post('password') != '') {
 				$this->ci->form_validation->set_rules('password', 'رمز عبور', 'required');
+				$this->ci->form_validation->set_rules('old_password', 'رمز عبور', 'required');
 				$this->ci->form_validation->set_rules('conf_password', 'تکرار رمز عبور', 'required|matches[password]');
 				$userData['password'] = md5($this->ci->input->post('password'));
 			}
 
 			if ($this->ci->form_validation->run() == true) {
 				$id = $this->ci->session->userdata('userId');
-				$con = array(
-					'returnType' => 'single',
-					'conditions' => array(
-						'id' => $id,
-						'password' => md5($this->ci->input->post('old_password')),
-						'status' => 1
-					)
-				);
-				$checkLogin = $this->ci->user->getRows($con);
-				if ($checkLogin) {
+				// $con = array(
+				// 	'returnType' => 'single',
+				// 	'conditions' => array(
+				// 		'id' => $id,
+				// 		'password' => md5($this->ci->input->post('old_password')),
+				// 		'status' => 1
+				// 	)
+				// );
+				// $checkLogin = $this->ci->user->getRows($con);
+				if ($this->isUserLoggedIn) {
 					$update = $this->ci->user->update(
 						$id,
 						$userData
@@ -95,8 +96,6 @@ class UsersSystem
 				$data['error_msg'] = 'لطفا همه قسمت های الزامی را پر کنید.';
 			}
 		}
-
-		$data['user'] = $this->get_logined_user_data();
 
 		return $data;
 	}

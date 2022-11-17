@@ -38,15 +38,15 @@
 			</div>
 			<?php echo form_error('email', '<div class="alert alert-danger" role="alert">', '</div>'); ?>
 
+			<div class="mt-3">
+				<label class="col-form-label">فقط در صورت نیاز به تغییر رمز عبور قسمت های زیر را پر کنید:</label>
+			</div>
+
 			<div class="mb-3">
 				<label for="old_password" class="col-form-label">رمز عبور قدیمی:</label>
 				<input type="password" class="form-control" id="old_password" name="old_password">
 			</div>
 			<?php echo form_error('old_password', '<div class="alert alert-danger" role="alert">', '</div>'); ?>
-
-			<div class="mt-3">
-				<label class="col-form-label">فقط در صورت نیاز به تغییر رمز عبور قسمت های زیر را پر کنید:</label>
-			</div>
 
 			<div class="mb-3">
 				<label for="password" class="col-form-label">رمز عبور :</label>
