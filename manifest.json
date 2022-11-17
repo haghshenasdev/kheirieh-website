@@ -25,25 +25,13 @@
     "theme_color": "#1d3557",
     "shortcuts": [
         {
-            "name": "How's weather today?",
-            "short_name": "Today",
-            "description": "نرم افزار خیریه امام",
-            "url": "/today?source=pwa",
+            "name": "پرداخت و نیکوکاری",
+            "short_name": "نیکوکاری",
+            "description": "باز کردن صفحه پرداخت و نیکوکاری نرم افزار",
+            "url": "/openDonatePage",
             "icons": [
                 {
-                    "src": "/images/today.png",
-                    "sizes": "192x192"
-                }
-            ]
-        },
-        {
-            "name": "How's weather tomorrow?",
-            "short_name": "Tomorrow",
-            "description": "View weather information for tomorrow",
-            "url": "/tomorrow?source=pwa",
-            "icons": [
-                {
-                    "src": "/images/tomorrow.png",
+                    "src": "css/images/مددجو.svg",
                     "sizes": "192x192"
                 }
             ]
