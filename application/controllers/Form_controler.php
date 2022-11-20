@@ -7,6 +7,8 @@ class form_controler extends CI_Controller
 	{
 		$this->load->library('donatepay', ['form_controler']);
 		$this->load->library(['show_menu']);
+		$this->load->library('userssystem', ['form_controler']);
+
 		$this->donatepay->pay_instance(
 			$type_name,
 			function ($data) {
@@ -15,6 +17,7 @@ class form_controler extends CI_Controller
 					[
 						'title' => $data['type_data']->title,
 						'menus' => $this->db_model->get_menus(),
+						'isUserLoggedIn' => $this->userssystem->isUserLoggedIn
 					]
 				);
 				$this->load->view('forms/donitef', $data);

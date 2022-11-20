@@ -29,7 +29,7 @@ class DonatePay
 			show_404();
 		}
 
-		if (!$this->ci->isUserLoggedIn) {
+		if (!$this->ci->userssystem->isUserLoggedIn) {
 			$this->ci->userssystem->login_validation_rules();
 		}
 
@@ -54,7 +54,7 @@ class DonatePay
 			$amount = $this->ci->input->post('amount');
 
 			$checkLogin_userdata = null;
-			if (!$this->ci->isUserLoggedIn) {
+			if (!$this->ci->userssystem->isUserLoggedIn) {
 				$checkLogin_userdata = $this->ci->userssystem->getDataAndCheck_user_login();
 			} else {
 				$checkLogin_userdata = $this->ci->userssystem->get_logined_user_data();
@@ -63,7 +63,7 @@ class DonatePay
 			//////////////
 			if ($checkLogin_userdata) {
 
-				if (!$this->ci->isUserLoggedIn) {
+				if (!$this->ci->userssystem->isUserLoggedIn) {
 					$this->ci->userssystem->start_logined_session($checkLogin_userdata);
 				}
 

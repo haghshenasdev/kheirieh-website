@@ -67,7 +67,7 @@
 				<span class="input-group-text">تومان</span>
 			</div>
 
-			<?php if ($this->isUserLoggedIn) : ?>
+			<?php if ($isUserLoggedIn) : ?>
 				<!-- is logined -->
 			<?php else : ?>
 				<div class="">

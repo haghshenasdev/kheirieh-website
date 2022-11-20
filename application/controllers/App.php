@@ -208,6 +208,7 @@ class App extends CI_Controller
 					[
 						'title' => $data['type_data']->title,
 						'short_title' => 'پرداخت و نیکو کاری',
+						'isUserLoggedIn' => $this->userssystem->isUserLoggedIn
 					]
 				);
 				$this->load->view('forms/donitef', $data);

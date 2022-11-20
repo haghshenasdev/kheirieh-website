@@ -116,6 +116,14 @@
               <a href="<?= $setting[8]->data ?>" class="btn btn-outline-light"><img src="<?= base_url('css/images/download.svg'); ?>" alt="آیکون دانلود" width="20px"> دانلود نسخه اندروید </a>
               <a href="<?= base_url('index.php/app')?>" class="btn btn-outline-light"> نسخه تحت وب (PWA)</a>
             </div>
+          <div class="row mt-2">
+            <div class="col">
+          <a href="https://myket.ir/app/ir.kheirieh.emamali.gorgab?utm_source=search-ads-gift&utm_medium=cpc"><img class="w-100" src="https://myket.ir/core/images/logo/get1-fa.png" /> </a>
+            </div>
+            <div class="col">
+          <a href="https://cafebazaar.ir/app/ir.kheirieh.emamali.gorgab" dideo-checked="true"><img class="w-100" src="https://cdn.developers.cafebazaar.ir/2021/05/bazaar-badge2-300x89.png" alt="" ></a>
+            </div>
+            </div>
         </div>
 
         <div class="col-lg-6 text-center m-auto my-5">

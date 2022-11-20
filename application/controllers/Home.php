@@ -31,6 +31,7 @@ class home extends CI_Controller {
 			'setting' => $this->db_model->get_setting(),
 		);
 		$this->load->view('layout/myheader',[
+			'title' => 'خیریه امام علی ابن ابیطالب (ع) شهر گرگاب',
 			'customHeaderMenu' => 'menus/homeMenu.php',
 			'menus' => $this->db_model->get_menus(),
 			'tags' => 'خیریه , امام علی ابن ابیطالب علیه السلام , شهر گرگاب , کمک به نیازمندان , پروژه خیر, بیت العباس , مسکن جوانان , دانلود نرم افزار , مددجو , مددکار, مرکز جامع سلامت , اورژانس 115 , مدرسه امام علی ابن ابیطالب , امور خیر , وقف , صدقه آنلاین',
