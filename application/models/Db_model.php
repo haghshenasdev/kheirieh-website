@@ -111,11 +111,15 @@ class db_model extends CI_Model
 		$this->db->insert('faktoors', $data);
 		return $data['sabtid'];
 	}
-	public function getpay($sabtid)
+	public function getpay($sabtid,$isGuest = false)
 	{
 		$this->db->from('faktoors');
 		$this->db->where('sabtid', $sabtid);
-		$this->db->join('users', 'users.id = faktoors.userid');
+		if ($isGuest) {
+			$this->db->join('guest_users', 'guest_users.id = faktoors.guest');
+		}else{
+			$this->db->join('users', 'users.id = faktoors.userid');
+		}
 		$query = $this->db->get();
 
 		return $query->result();

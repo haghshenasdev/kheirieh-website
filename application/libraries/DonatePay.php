@@ -29,15 +29,16 @@ class DonatePay
 			show_404();
 		}
 
-		if (!$this->ci->userssystem->isUserLoggedIn) {
-			$this->ci->userssystem->login_validation_rules();
-		}
-
 		$this->ci->form_validation->set_rules('amount', 'مبلغ', 'integer|required');
 
 		if ($this->ci->input->post('type') != null) {
 			$this->ci->form_validation->set_rules('type', 'نوع', 'callback_valid_type');
 			$this->ci->form_validation->set_message('valid_type', 'نوع انتخاب شده معتبر نیست');
+		}
+
+		if (!$this->ci->userssystem->isUserLoggedIn) {
+			$this->ci->form_validation->set_rules('phone', 'تلفن', 'required|numeric|min_length[9]|regex_match[/^09[0-9]{9}$/]');
+			$this->ci->form_validation->set_rules('name', 'نام و نام خانوادگی', 'required');
 		}
 
 		// capcha validation
@@ -53,41 +54,48 @@ class DonatePay
 		if ($this->ci->form_validation->run()) {
 			$amount = $this->ci->input->post('amount');
 
-			$checkLogin_userdata = null;
-			if (!$this->ci->userssystem->isUserLoggedIn) {
-				$checkLogin_userdata = $this->ci->userssystem->getDataAndCheck_user_login();
+			$userOrguestData = [];
+			if ($this->ci->userssystem->isUserLoggedIn) {
+				// get logined user id
+				$userOrguestData['userid'] = $this->ci->userssystem->get_logined_user_data()['id'];
 			} else {
-				$checkLogin_userdata = $this->ci->userssystem->get_logined_user_data();
+				// get and insert gust user id
+				$this->ci->load->model('guest');
+				$guest = $this->ci->guest->insert([
+					'name' => $this->ci->input->post('name'),
+					'phone' => $this->ci->input->post('phone')
+				]);
+
+				if($guest) {
+					$userOrguestData['guest'] = $guest;
+				}else{
+					echo 'خطا';
+					return;
+				}
 			}
 
 			//////////////
-			if ($checkLogin_userdata) {
 
-				if (!$this->ci->userssystem->isUserLoggedIn) {
-					$this->ci->userssystem->start_logined_session($checkLogin_userdata);
-				}
+			$type_data = $this->gneriate_typedata($type_data);
 
-				$type_data = $this->gneriate_typedata($type_data);
+			// init zarinpal
+			$this->ci->load->library('zarinpal', ['merchant_id' => $this->ci->config->item('MID_Pay')]);
+			$this->ci->zarinpal->sandbox();
+			if ($this->ci->zarinpal->request($amount, $type_data->title, base_url('index.php/' . $this->MainRoute . '/verifaypay'))) {
+				$authority = $this->ci->zarinpal->get_authority();
 
-				// init zarinpal
-				$this->ci->load->library('zarinpal', ['merchant_id' => $this->ci->config->item('MID_Pay')]);
-				$this->ci->zarinpal->sandbox();
-				if ($this->ci->zarinpal->request($amount, $type_data->title, base_url('index.php/'. $this->MainRoute .'/verifaypay'))) {
-					$authority = $this->ci->zarinpal->get_authority();
-					$this->ci->db_model->insert_pay([
-						'userid' => $checkLogin_userdata['id'],
+				$this->ci->db_model->insert_pay(
+					array_merge($userOrguestData, [
 						'amount' => $amount,
 						'sabtid' => $this->ci->db_model->get_format_authority($authority),
 						'type' => $type_data->id,
-					]);
-					// do database stuff
-					$this->ci->zarinpal->redirect();
-				} else {
-					// Unable to connect to gateway
-					$data['error_msg'] = 'ارتباط با درگاه پرداخت انجام نشد !';
-				}
+					])
+				);
+				// do database stuff
+				$this->ci->zarinpal->redirect();
 			} else {
-				$data['error_msg'] = 'رمز عبور و  شماره تلفن درست نیست !';
+				// Unable to connect to gateway
+				$data['error_msg'] = 'ارتباط با درگاه پرداخت انجام نشد !';
 			}
 		}
 
@@ -111,9 +119,9 @@ class DonatePay
 		$data = [];
 
 		$authorityFormated = $this->ci->db_model->get_format_authority($authority);
-		$res = $this->ci->db_model->getpay($authorityFormated);
-//&&
-// $this->ci->zarinpal->verify($res[0]->amount, $authority)
+		$res = $this->ci->db_model->getpay($authorityFormated,!$this->ci->userssystem->isUserLoggedIn);
+		//&&
+		// $this->ci->zarinpal->verify($res[0]->amount, $authority)
 		if (
 			$status === 'OK' &&
 			$authority !== NULL

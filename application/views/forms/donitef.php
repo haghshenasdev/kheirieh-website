@@ -73,9 +73,10 @@
 				<div class="">
 					<label class="col-form-label">
 						<p>
-							توجه : لطفا برای ثبت اطلاعات پرداخت از طریق فرم فرم زیر وارد حساب کاربری خود شوید .
-							یا اگر حساب کاربری ندارید
-							<a class="btn btn-outline-light ThemeStyle-border" href="<?= $this->userssystem->route_registration ?>">ثبت نام کنید </a>
+							توجه : 
+							ترجیحا وارد حساب کاربری خود شوید یا حساب کاربری ایجاد کنید (بدون ثبت نام هم امکان پرداخت وجود دارد)
+							<a class="btn btn-outline-light ThemeStyle-border" href="<?= $this->userssystem->route_registration ?>">ثبت نام </a>
+							<a class="btn btn-outline-light ThemeStyle-border" href="<?= $this->userssystem->route_login ?>">ورود</a>
 						</p>
 					</label>
 				</div>
@@ -86,8 +87,8 @@
 				</div>
 
 				<div class="mb-3">
-					<label for="password" class="col-form-label">رمز ورود :</label>
-					<input type="password" class="form-control" id="password" name="password">
+					<label for="name" class="col-form-label">نام :</label>
+					<input type="name" class="form-control" id="name" name="name">
 				</div>
 			<?php endif; ?>
 
