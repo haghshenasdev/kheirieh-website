@@ -59,13 +59,20 @@ class DonatePay
 				// get logined user id
 				$userOrguestData['userid'] = $this->ci->userssystem->get_logined_user_data()['id'];
 			} else {
-				// get and insert gust user id
-				$this->ci->load->model('guest');
-				$guest = $this->ci->guest->insert([
+				// get 
+				$guestData = [
 					'name' => $this->ci->input->post('name'),
 					'phone' => $this->ci->input->post('phone')
-				]);
+				];
 
+				$this->ci->load->model('guest');
+				//found
+				$guest = $this->ci->guest->found($guestData);
+				//if not found insert new
+				if (!$guest) {
+					$guest = $this->ci->guest->insert($guestData);
+				}
+				// atach data in main array
 				if($guest) {
 					$userOrguestData['guest'] = $guest;
 				}else{
@@ -120,6 +127,7 @@ class DonatePay
 
 		$authorityFormated = $this->ci->db_model->get_format_authority($authority);
 		$res = $this->ci->db_model->getpay($authorityFormated,!$this->ci->userssystem->isUserLoggedIn);
+		//var_dump($res);
 		//&&
 		// $this->ci->zarinpal->verify($res[0]->amount, $authority)
 		if (

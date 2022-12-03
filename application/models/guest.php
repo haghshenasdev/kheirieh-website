@@ -16,5 +16,10 @@ class Guest extends CI_Model
 		// Return the status 
 		return $insert ? $this->db->insert_id() : false;
 	}
+	public function found($data)
+	{
+		$res = $this->db->from($this->table)->where($data)->get()->result();
+		return count($res) == 0 ? false : $res[0]->id;
+	}
 
 }
